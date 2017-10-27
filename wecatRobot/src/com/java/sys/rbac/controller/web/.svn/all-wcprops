@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web
+END
+SysLoginWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysLoginWebController.java
+END
+SysIndexWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysIndexWebController.java
+END
+SysMenuWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysMenuWebController.java
+END
+SysUserWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysUserWebController.java
+END
+SysGeneratorWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysGeneratorWebController.java
+END
+SysPermWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysPermWebController.java
+END
+SysDictWebContoller.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysDictWebContoller.java
+END
+SysCommonWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysCommonWebController.java
+END
+SysRoleWebController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/web/SysRoleWebController.java
+END

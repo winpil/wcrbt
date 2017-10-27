@@ -1,0 +1,160 @@
+.contentArea {
+  padding-top: 12px;
+  color: #333;
+  font-size: 16px;
+}
+.contentArea > .contentTitle {
+  padding-left: 26px;
+  background-color: #fff;
+  line-height: 60px;
+}
+.contentArea > .contentTitle .lineBlue {
+  height: 23px;
+  width: 3px;
+  background-color: #1c9bd9;
+  display: inline-block;
+  vertical-align: middle;
+}
+.contentArea > .mapContent {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background-color: #fff;
+  padding-top: 0;
+  min-height: 800px;
+}
+.contentArea > .mapContent > #allmap {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  margin: 0;
+  font-family: "΢���ź�";
+}
+#outManList > div {
+  background-color: #B32727;
+  color: #fff;
+  font-size: 14px;
+  line-height: 34px;
+  cursor: pointer;
+}
+#outManList > div > img {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+#outManList > ul li {
+  border-bottom: 1px solid #ccc;
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 30px;
+}
+.addEventBtn {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: url("../../images/icon_add_event.png") no-repeat center;
+  background-color: #fff;
+}
+.inquiryEvent > select {
+  width: 130px;
+  height: 30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  vertical-align: middle;
+  margin-top: -40px;
+  padding-left: 10px;
+}
+.inquiryEvent > span {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.inquiryEvent > .ze {
+  background: url("../../images/icon_duty.png") no-repeat center;
+  background-color: #fff;
+}
+.inquiryEvent > .mianZe {
+  background: url("../../images/icon_duty_non.png") no-repeat center;
+  background-color: #fff;
+}
+.inquiryEvent > .deng {
+  background: url("../../images/icon_accident_gray.png") no-repeat center;
+  background-color: #fff;
+}
+.inquiryEvent > .yao {
+  background: url("../../images/icon_health_gray.png") no-repeat center;
+  background-color: #fff;
+}
+.EventForm {
+  width: 378px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #fff;
+}
+.EventForm > h3 {
+  margin: 0;
+  line-height: 40px;
+  padding-left: 18px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  font-weight: 400;
+  font-size: 15px;
+  color: #666;
+}
+.EventForm > h3 > span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 20px;
+  top: 50%;
+  margin-top: -8px;
+  cursor: pointer;
+  background: url("../../images/icon_cancel_add_event.png") no-repeat center;
+}
+.EventForm > ul {
+  padding-left: 18px;
+  padding-bottom: 10px;
+}
+.EventForm > ul > li {
+  font-size: 14px;
+  color: #666;
+  line-height: 30px;
+  margin-top: 6px;
+}
+.EventForm > ul > li > input {
+  width: 250px;
+  height: 27px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.EventForm > ul > li > span {
+  display: inline-block;
+  width: 80px;
+}
+.EventForm > ul > li > span.eventMiao {
+  vertical-align: top;
+}
+.EventForm > ul > li > a {
+  display: block;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 10px auto;
+  background-color: #0097E3;
+  color: #fff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/netword.css"/>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/element.js"></script>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content " id="content">
+    <!--查看街道-->
+    <transition name="move" mode="out-in">
+        <div v-show="lookJieDaoModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    街道信息
+                    <span @click.stop="lookJieDaoModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>街道名称：</span>{{areaName}}</div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b> 街道ID：</span>{{areaId}}</div>
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class="w126"><b class="redColor">*</b>出租屋套数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>商铺数：</span>22</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>商场数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>工业园数：</span>23</div>
+                        <div  class="col-sm-5"><span class="w180"><b class="redColor">*</b>其他(广场、公园等)：</span>56</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>企业总数：</span>42</div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">街道描述：</span>暂无</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </transition>
+    <!--编辑街道-->
+    <transition name="move" mode="out-in">
+        <div v-show="editJieDaoModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    编辑街道
+                    <span @click.stop="editJieDaoModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b class="redColor">*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <!--<img src="../../images/huafenimg.jpg" alt=""/>-->
+                                <div id="allmap"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>街道名称：</span><input type="text" v-model.trim="areaName" class="w225"/></div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b>街道ID：</span><input type="text" v-model.trim="areaId" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">街道描述：</span><input type="text" v-model.trim="miaoShu" class="w225"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn" @click="editJieDaoSave">保存</div>
+
+            </div>
+        </div>
+    </transition>
+    <!--查看片区-->
+    <transition name="move" mode="out-in">
+        <div v-show="lookPianQuModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    片区信息
+                    <span @click.stop="lookPianQuModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>片区名称：</span>{{areaName}}</div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b> 片区ID：</span>{{areaId}}</div>
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class="w126"><b class="redColor">*</b>出租屋套数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>商铺数：</span>22</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>商场数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>工业园数：</span>23</div>
+                        <div  class="col-sm-5"><span class="w180"><b class="redColor">*</b>其他(广场、公园等)：</span>56</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>企业总数：</span>42</div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">片区描述：</span>暂无</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </transition>
+    <!--编辑片区-->
+    <transition name="move" mode="out-in">
+        <div v-show="editPianQuModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    编辑片区
+                    <span @click.stop="editPianQuModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>片区名称：</span><input type="text" v-model.trim="areaName" class="w225"/></div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b> 片区ID：</span><input type="text" v-model.trim="areaId" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">片区描述：</span><input type="text" v-model.trim="miaoShu" class="w225"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn" @click="editPianQuSave">保存</div>
+
+            </div>
+        </div>
+    </transition>
+    <!--新增片区-->
+    <transition name="move" mode="out-in">
+        <div v-show="addPianQuModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    新增片区
+                    <span @click.stop="addPianQuModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>片区名称：</span><input type="text" v-model.trim="areaName" class="w225"/></div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b> 片区ID：</span><input type="text" v-model.trim="areaId" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">片区描述：</span><input type="text" v-model.trim="miaoShu" class="w225"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn" @click="addPianQuSave">保存</div>
+
+            </div>
+        </div>
+    </transition>
+    <!--查看小网格-->
+    <transition name="move" mode="out-in">
+        <div v-show="lookWangLuoModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    小网格信息
+                    <span @click.stop="lookWangLuoModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class=""><b class="redColor">*</b>小网络名称：</span>{{areaName}}</div>
+                        <div  class="col-sm-6"><span class=""><b class="redColor">*</b> 小网络ID：</span>{{areaId}}</div>
+                        <div  class="col-sm-5"><span class=""><b class="redColor">*</b>分配网格员：</span>{{areaName}}</div>
+                        <div  class="col-sm-6"><span class=""><b class="redColor">*</b> 分配网格员手机号：</span>{{areaId}}</div>
+                        <div  class="col-sm-5"><span class=""><b class="redColor">*</b>协助网格员：</span>{{areaName}}</div>
+                        <div  class="col-sm-6"><span class=""><b class="redColor">*</b> 协助网格员手机号：</span>{{areaId}}</div>
+                        <div  class="col-sm-5"><span class=""><b class="redColor">*</b>所属巡查组：</span>{{areaName}}</div>
+                    </div>
+                    <div class="row borderBottom pBottotm">
+                        <div  class="col-sm-5"><span class="w126"><b class="redColor">*</b>出租屋套数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>商铺数：</span>22</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>商场数：</span>22</div>
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>工业园数：</span>23</div>
+                        <div  class="col-sm-5"><span class="w180"><b class="redColor">*</b>其他(广场、公园等)：</span>56</div>
+                        <div  class="col-sm-2"><span class="w92"><b class="redColor">*</b>企业总数：</span>42</div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span>小网格描述：</span>暂无</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </transition>
+    <!--编辑小网络-->
+    <transition name="move" mode="out-in">
+        <div v-show="editWangLuoModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    编辑小网络
+                    <span @click.stop="editWangLuoModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-5"><span class="w92"><b class="redColor">*</b>片区名称：</span><input type="text" v-model.trim="areaName" class="w225"/></div>
+                        <div  class="col-sm-6"><span class="w92"><b class="redColor">*</b> 片区ID：</span><input type="text" v-model.trim="areaId" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12">
+                            <span class="w126"><b class="redColor">*</b>分配网格员：</span>
+                            <el-radio class="radio" v-model="radio" label="1">王某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="2">李某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="3">赵某某</el-radio>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12">
+                            <span class="w126"><b class="redColor">*</b>分配网格员：</span>
+                            <el-radio class="radio" v-model="radio" label="4">王某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="5">李某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="6">赵某某</el-radio>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">片区描述：</span><input type="text" v-model.trim="miaoShu" class="w225"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn" @click="editWangGeSave">保存</div>
+
+            </div>
+        </div>
+    </transition>
+    <!--新增小网络-->
+    <transition name="move" mode="out-in">
+        <div v-show="addWangLuoModel"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    新增小网络
+                    <span @click.stop="addWangLuoModel=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div  class="col-sm-12 clearfix">
+                            <span class="w92 fl"><b>*</b>片区划分：</span>
+                            <div class="huaFen fl">
+                                <img src="../../images/huafenimg.jpg" alt=""/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-5"><span class="w126"><b class="redColor">*</b>小网络划分：</span><input type="text" v-model.trim="areaName" class="w225"/></div>
+                        <div  class="col-sm-6"><span class="w126"><b class="redColor">*</b>小网络划分ID：</span><input type="text" v-model.trim="areaId" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12">
+                            <span class="w126"><b class="redColor">*</b>分配网格员：</span>
+                            <el-radio class="radio" v-model="radio" label="1">王某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="2">李某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="3">赵某某</el-radio>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12">
+                            <span class="w126"><b class="redColor">*</b>分配网格员：</span>
+                            <el-radio class="radio" v-model="radio" label="4">王某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="5">李某某</el-radio>
+                            <el-radio class="radio" v-model="radio" label="6">赵某某</el-radio>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12 pianQuMiaoShu"><span class="w92">片区描述：</span><input type="text" v-model.trim="miaoShu" class="w225"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn" @click="addWangGeSave">保存</div>
+
+            </div>
+        </div>
+    </transition>
+
+
+    <div class="container-fluid w">
+
+        <div class="pageNav">
+            基础数据 > 巡查组管理
+        </div>
+
+        <div class="contentArea networkPage">
+            <div class="inquiry">
+                <div>
+                    <span class="pa"></span>
+                    <input type="text" placeholder="请输入巡查组名称"/>
+                    <button class="inquiryBtnCom">查询</button>
+                </div>
+
+            </div>
+            <div>
+                <div class="addBtnBox">
+                    <button class="iconBtn addBtn" @click.stop="addJieDao()"><span></span>新增</button>
+                </div>
+                    <div class="networkList">
+                        <ul>
+                            <li class="row listTitle">
+                                <div class="col-sm-1">序号</div>
+                                <div class="col-sm-3">网格名称</div>
+                                <div class="col-sm-1">出租屋套数</div>
+                                <div class="col-sm-1">商铺数</div>
+                                <div class="col-sm-1">企业总数</div>
+                                <div class="col-sm-2">网格描述</div>
+                                <div class="col-sm-3">操作</div>
+                            </li>
+                            <div v-for="(item,index) in jieDaoList">
+                                <li class="row jiedaoRow">
+                                    <div class="col-sm-4" style="text-align: left;padding-left: 40px;">{{index+1}}<span class="downUpicon" @click="dropDown($event)" data-id="0"></span>
+                                        <span class="jiedaoIcon"></span>街道1</div>
+                                    <div class="col-sm-1">15</div>
+                                    <div class="col-sm-1">15</div>
+                                    <div class="col-sm-1">15</div>
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-3">
+                                        <span class="lookIcon"></span><a class="lookBtn" @click="lookJieDao(index)" href="javascript:;">查看</a>
+                                        <span class="editIcon"></span><a class="editBtn" @click="editJieDao(index)" href="javascript:;">编辑</a>
+                                        <span class="deleteIcon"></span><a class="deleteBtn" @click="deletJieDao(index)"  href="javascript:;">删除</a>
+                                    </div>
+                                </li>
+                                <div class="pianQuBox"  v-for="(item2,index2) in item.pianQuList">
+                                    <li class="row pianquRow huiColor">
+                                        <div class="col-sm-2" style="padding-left: 50px;"><span class="downUpicon" @click="dropDown($event)" data-id="0"></span>
+                                            <span class="pianquIcon"></span>{{item2.areaName}}</div>
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-1">15</div>
+                                        <div class="col-sm-1">15</div>
+                                        <div class="col-sm-1">15</div>
+                                        <div class="col-sm-2">{{item2.miaoShu}}</div>
+                                        <div class="col-sm-3">
+                                            <span class="lookIcon"></span><a class="lookBtn" @click="lookPianqu(index,index2)" href="javascript:;">查看</a>
+                                            <span class="editIcon"></span><a class="editBtn"  @click="editPianQu(index,index2)" href="javascript:;">编辑</a>
+                                            <span class="deleteIcon"></span><a class="deleteBtn" @click="deletePianQu(index,index2)"  href="javascript:;">删除</a>
+                                        </div>
+                                    </li>
+
+                                    <div class="wangGeBox"  v-for="(item3,index3) in item2.wangGeList">
+                                        <li class="row pianquRow huiColor">
+                                            <div class="col-sm-3"><span class="wangluoIcon"></span>{{item3.areaName}}</div>
+                                            <div class="col-sm-1"></div>
+                                            <div class="col-sm-1">15</div>
+                                            <div class="col-sm-1">15</div>
+                                            <div class="col-sm-1">15</div>
+                                            <div class="col-sm-2">{{item3.areaName}}</div>
+                                            <div class="col-sm-3">
+                                                <span class="lookIcon"></span><a class="lookBtn" @click="lookWangLuo(index,index2,index3)" href="javascript:;">查看</a>
+                                                <span class="editIcon"></span><a class="editBtn" @click="editWangGe(index,index2,index3)" href="javascript:;">编辑</a>
+                                                <span class="deleteIcon"></span><a class="deleteBtn" @click="deletWangGe(index,index2,index3)" href="javascript:;">删除</a>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <li class="row huiColor">
+                                        <div class="col-sm-4" style="padding-left: 20px;" @click.stop="addWangGe(index,index2)">
+                                            <span class="wangluoIcon"></span>
+                                            <div class="addWangLuoBtn"> <span class="addIcon"></span>新增小网格</div>
+                                        </div>
+                                    </li>
+                                </div>
+                                <li class="row huiColor">
+                                    <div class="col-sm-3" style="padding-left: 60px;" @click.stop="addPianQu(index)">
+                                        <span class="pianquIcon"></span>
+                                        <div class="addPianQuBtn" data-id="2"> <span class="addIcon"></span>新增片区</div>
+                                    </div>
+                                </li>
+                            </div>
+
+
+                        </ul>
+                    </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VlEjaCydESrVjEc7bn7mEb5AdasayIDo"></script>
+
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/common/nav.js"></script>
+
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            index:"",
+            index2:"",
+            radio: '1',//单选框
+            areaName:"",
+            areaId:"",
+            miaoShu:"",
+            lookJieDaoModel:false,
+            lookPianQuModel:false,
+            lookWangLuoModel:false,
+            editJieDaoModel:false,
+            editPianQuModel:false,
+            editWangLuoModel:false,
+            addPianQuModel: false,//添加片区
+            addWangLuoModel:false,//添加网络
+            jieDaoList:[
+                {
+                    pianQuList:[]
+                },
+            ],
+        },
+        methods:{
+            onSubmit:function(){
+                console.log(123)
+            },
+            lookJieDao:function(index){
+                this.index = index;
+                this.lookJieDaoModel = true
+            },
+            lookPianqu:function(index,index2){
+                this.index = index;
+                this.index2 = index2;
+                this.lookPianQuModel = true;
+            },
+            lookWangLuo:function(index,index2,index3){
+                this.index = index;
+                this.index2 = index2;
+                this.index3 = index3;
+                this.lookWangLuoModel = true;
+            },
+            editJieDao:function(index){
+                this.index = index;
+                this.editJieDaoModel = true;
+            },
+            editJieDaoSave:function(){
+                this.editJieDaoModel = false;
+            },
+            editPianQu:function(index,index2){
+                this.index = index;
+                this.index2 = index2;
+                this.editPianQuModel = true;
+            },
+            editPianQuSave:function(){
+                this.editPianQuModel = false;
+            },
+            editWangGe:function(index,index2,index3){
+                this.index = index;
+                this.index2 = index2;
+                this.index3 = index3;
+                this.editWangLuoModel = true;
+            },
+            editWangGeSave:function(){
+                this.editWangLuoModel = false;
+            },
+            addJieDao:function(){
+                this.jieDaoList.push({ pianQuList:[]})
+            },
+            addPianQu: function(index){
+                this.addPianQuModel = true;
+                this.index = index;
+            },
+            addPianQuSave:function(){
+                this.addPianQuModel = false;
+                var obj = {
+                    areaName:this.areaName,
+                    areaId: this.areaId,
+                    miaoShu:this.miaoShu,
+                    wangGeList:[]
+                };
+                this.jieDaoList[this.index].pianQuList.push(obj)
+
+            },
+            addWangGe:function(index,index2){
+                this.addWangLuoModel = true;
+                this.index = index;
+                this.index2 = index2;
+            },
+            addWangGeSave:function(){
+                this.addWangLuoModel = false;
+                var obj = {
+                    areaName:this.areaName,
+                    areaId: this.areaId,
+                    miaoShu:this.miaoShu
+                };
+                this.jieDaoList[this.index].pianQuList[this.index2].wangGeList.push(obj)
+            },
+            deletJieDao:function(index,index2){
+
+                this.jieDaoList.splice(index, 1);
+
+                console.log(this.jieDaoList)
+            },
+            deletePianQu:function(index,index2){
+                this.jieDaoList[index].pianQuList.splice(index2, 1);
+            },
+            deletWangGe:function(index,index2,index3){
+                this.jieDaoList[index].pianQuList[index2].wangGeList.splice(index3, 1);
+            },
+            dropDown:function(e){
+               var idStatus = $(e.currentTarget).attr("data-id");
+                if(idStatus==0){
+                    $(e.currentTarget).parent().parent().siblings().slideDown(200);
+                    $(e.currentTarget).css({
+                        background: 'url("../../images/icon_pack-up_edit.png") no-repeat center',
+                    }).attr("data-id","1")
+                }else{
+                    $(e.currentTarget).parent().parent().siblings().slideUp(200);
+                    $(e.currentTarget).css({
+                        background: 'url("../../images/icon_drop_down_edit.png") no-repeat center',
+                    }).attr("data-id","0")
+                }
+            }
+
+
+
+          }
+    });
+//    地图
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 15);
+    map.enableScrollWheelZoom();
+
+    var polygon = new BMap.Polygon([
+        new BMap.Point(116.387112,39.920977),
+        new BMap.Point(116.385243,39.913063),
+        new BMap.Point(116.394226,39.917988),
+        new BMap.Point(116.401772,39.921364),
+        new BMap.Point(116.41248,39.927893)
+    ], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建多边形
+
+    map.addOverlay(polygon);
+    polygon.enableEditing();
+    polygon.addEventListener("lineupdate",function(e){
+        console.log(e.currentTarget.po);
+    });
+</script>
+</html>
+
+
+
+
+

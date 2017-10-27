@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/ajax
+END
+ProvinceAjaxController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/ajax/ProvinceAjaxController.java
+END
+CityAjaxController.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/ajax/CityAjaxController.java
+END
+DistrictAjaxController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/ajax/DistrictAjaxController.java
+END
+MenuAjaxController.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/controller/ajax/MenuAjaxController.java
+END

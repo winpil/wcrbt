@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers
+END
+SysProvinceDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysProvinceDao.xml
+END
+SysRolePermDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysRolePermDao.xml
+END
+SysPermDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysPermDao.xml
+END
+SysUserDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysUserDao.xml
+END
+SysMenuDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysMenuDao.xml
+END
+SysDictDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysDictDao.xml
+END
+SysRoleDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysRoleDao.xml
+END
+SysCityDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysCityDao.xml
+END
+SysColumnDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysColumnDao.xml
+END
+SysRoleUserDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysRoleUserDao.xml
+END
+SysDistrictDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/mappers/SysDistrictDao.xml
+END

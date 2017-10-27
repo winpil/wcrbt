@@ -1,0 +1,82 @@
+8
+
+dir
+5
+https://laptop-hm5vj82c/svn/kd/wecatRobot/WebRoot/web/code/anjianyuanxing/specificTasks/resources/scripts
+https://laptop-hm5vj82c/svn/kd
+
+
+
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7e1568f4-c5be-2f47-bac6-4d4f34e35b46
+
+axure
+dir
+
+axutils.js
+file
+
+
+
+
+2017-10-27T08:03:14.763000Z
+9ee0498d0681237918b5c5601d3fdc10
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+jquery-1.7.1.min.js
+file
+
+
+
+
+2017-10-27T08:03:14.764000Z
+db2cccefedcc741a45a582e91a5afe8d
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+jquery-ui-1.8.10.custom.min.js
+file
+
+
+
+
+2017-10-27T08:03:14.765000Z
+edb89f4c0c7606b4563b387f4f5c034a
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+messagecenter.js
+file
+
+
+
+
+2017-10-27T08:03:14.766000Z
+90b6523d87ddacbfffe142aa666afabe
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+player
+dir
+

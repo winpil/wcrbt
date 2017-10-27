@@ -1,0 +1,227 @@
+body {
+  background-color: #f2f2f2;
+}
+body > .top ul.oneMenu > li {
+  margin-right: 20px;
+}
+body > .top ul.oneMenu > li ol {
+  width: 100%;
+  position: absolute;
+  display: none;
+  z-index: 5;
+}
+body > .top ul.oneMenu > li ol > li {
+  height: 34px;
+  line-height: 34px;
+  background-color: #007cb9;
+  border-bottom: 1px solid #0098e4;
+}
+body > .top ul.oneMenu > li ol > li > a {
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  text-decoration: none;
+}
+body > .top ul.oneMenu > li ol > li:hover {
+  background-color: #0098e4;
+}
+body > .top ul.oneMenu > li.active {
+  background-color: #007cb9;
+}
+body > .content > .mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+body > .content > .mask > div {
+  background-color: #fff;
+  margin: 100px auto;
+  padding: 0 22px 22px 22px;
+  width: 620px;
+}
+body > .content > .mask > div > h3 {
+  line-height: 58px;
+  font-size: 18px;
+}
+body > .content > .mask > div > h3 > i {
+  width: 22px;
+  height: 22px;
+  background-image: url("../../images/icon_cancel.png");
+  position: relative;
+  top: 15px;
+  cursor: pointer;
+}
+body > .content > .mask > div > div {
+  margin-top: 20px;
+  text-align: center;
+}
+body > .content > .path {
+  padding-left: 30px;
+  line-height: 46px;
+  background-color: #fff;
+  margin: 20px 0 12px 0;
+}
+body > .content > .path > .el-breadcrumb {
+  line-height: 46px;
+}
+body > .content > .content2 {
+  background-color: #fff;
+  padding-bottom: 50px;
+  position: relative;
+}
+body > .content > .content2 > h3 {
+  line-height: 70px;
+  padding-left: 50px;
+  font-size: 20px;
+  position: relative;
+}
+body > .content > .content2 > h3 > i {
+  position: absolute;
+  width: 3px;
+  height: 15px;
+  top: 28px;
+  left: 35px;
+  background-color: #1b9ad8;
+}
+body > .content > .content2 > .route {
+  height: 194px;
+  background-color: #fbfbfb;
+}
+body > .content > .content2 > .route > .top {
+  width: 900px;
+  height: 116px;
+  border-bottom: 1px dashed #0098e4;
+  margin: 0 auto;
+  position: relative;
+}
+body > .content > .content2 > .route > .top > span {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  bottom: -12px;
+  background-image: url("../../images/icon-circle1.png");
+}
+body > .content > .content2 > .route > .top > span.one {
+  left: 0;
+}
+body > .content > .content2 > .route > .top > span.two {
+  left: 215px;
+}
+body > .content > .content2 > .route > .top > span.three {
+  left: 430px;
+}
+body > .content > .content2 > .route > .top > span.four {
+  right: 215px;
+}
+body > .content > .content2 > .route > .top > span.five {
+  right: 0;
+}
+body > .content > .content2 > .route > .top > span.active {
+  background-image: url("../../images/icon-circle2.png");
+}
+body > .content > .content2 > .route > div:last-child > span {
+  display: inline-block;
+  color: #aaaaaa;
+  line-height: 60px;
+  font-size: 16px;
+}
+body > .content > .content2 > .route > div:last-child > span.active {
+  color: #0098e4;
+}
+body > .content > .content2 > .route > div:last-child > span:first-child {
+  margin-left: 100px;
+  width: 230px;
+}
+body > .content > .content2 > .route > div:last-child > span.two {
+  width: 185px;
+}
+body > .content > .content2 > .route > div:last-child > span.three {
+  width: 260px;
+}
+body > .content > .content2 > .route > div:last-child > span.four {
+  width: 225px;
+}
+body > .content > .content2 > h3.title {
+  color: #0098e4;
+  font-size: 16px;
+}
+body > .content > .content2 > .baseInfo {
+  padding: 0 48px;
+  font-size: 16px;
+  line-height: 30px;
+}
+body > .content > .content2 > .baseInfo span.circle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #0098e4;
+  border-radius: 50%;
+}
+body > .content > .content2 > .table {
+  padding: 0 48px;
+  text-align: center;
+  font-size: 16px;
+}
+body > .content > .content2 > .table > .el-row {
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+}
+body > .content > .content2 > .table > .el-row > .el-col {
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  line-height: 50px;
+}
+body > .content > .content2 > .table > .el-row > .el-col.type {
+  line-height: 40px;
+}
+body > .content > .content2 > .table > .el-row > .el-col.typeLeft {
+  line-height: 327px;
+}
+body > .content > .content2 > .table > .el-row.img > .el-col {
+  line-height: 160px;
+  height: 160px;
+}
+body > .content > .content2 > .table > .el-row.img > .el-col ul {
+  padding-left: 20px;
+}
+body > .content > .content2 > .table > .el-row.img > .el-col ul li {
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin-right: 15px;
+}
+body > .content > .content2 > .table > .el-row.img > .el-col ul li img {
+  width: 100%;
+  height: 100%;
+}
+body > .content > .content2 > .opt {
+  padding: 5px 60px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+body > .content > .content2 > .opt > .el-select {
+  margin-left: 15px;
+}
+body > .content > .content2 > .btn {
+  padding-top: 90px;
+  text-align: center;
+}
+body > .content > .content2 > .btn > button {
+  width: 108px;
+  height: 30px;
+  background-color: #0098e4;
+  border-radius: 30px;
+  font-size: 18px;
+  color: #ffffff;
+  margin-right: 15px;
+  cursor: pointer;
+}
+body > .content > .content2 > .btn > button:first-child {
+  background-color: #fe8446;
+}

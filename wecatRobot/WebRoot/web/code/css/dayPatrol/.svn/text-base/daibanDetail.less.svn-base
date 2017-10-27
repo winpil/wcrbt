@@ -1,0 +1,216 @@
+body{
+  background-color: #f2f2f2;
+
+  >.top{
+    ul.oneMenu{
+      >li{
+        margin-right: 20px;
+        ol{
+          width: 100%;
+          position: absolute;
+          display: none;
+          z-index:5;
+          >li{
+            height: 34px;
+            line-height: 34px;
+            background-color: #007cb9;
+            border-bottom:1px solid #0098e4;
+            >a{
+              text-align: center;
+              display: block;
+              width: 100%;
+              height: 100%;
+              color: #ffffff;
+              text-decoration: none;
+            }
+          }
+          >li:hover{
+            background-color: #0098e4;
+          }
+        }
+      }
+      >li.active{
+        background-color: #007cb9
+      }
+    }
+  }
+  >.content{
+    //background-color: #fff;
+    >.path{
+      padding-left:30px;
+      line-height:46px;
+      background-color: #fff;
+      margin:20px 0 12px 0;
+      >.el-breadcrumb{
+        line-height:46px;
+      }
+    }
+    >.content2{
+      background-color: #fff;
+      padding-bottom: 50px;
+      position: relative;
+      >h3{
+        line-height: 70px;
+        padding-left: 50px;
+        font-size: 20px;
+        position: relative;
+        >i{
+          position: absolute;
+          width: 3px;
+          height: 15px;
+          top: 28px;
+          left: 35px;
+          background-color: #1b9ad8;
+        }
+      }
+      >.route{
+        height: 194px;
+        background-color: #fbfbfb;
+        >.top{
+          width: 900px;
+          height: 116px;
+          border-bottom:1px dashed #0098e4;
+          margin:0 auto;
+          position: relative;
+          >span{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            bottom: -12px;
+            background-image: url("../../images/icon-circle1.png");
+          }
+          >span.one{
+            left:0;
+          }
+          >span.two{
+            left: 215px;
+          }
+          >span.three{
+            left: 430px;
+          }
+          >span.four{
+            right: 215px;
+          }
+          >span.five{
+            right:0;
+          }
+          >span.active{
+            background-image: url("../../images/icon-circle2.png");
+          }
+
+        }
+        >div:last-child{
+          >span{
+            display: inline-block;
+            color: #aaaaaa;
+            line-height: 60px;
+            font-size: 16px;
+          }
+          >span.active{
+            color: #0098e4;
+          }
+          >span:first-child{
+            margin-left: 100px;
+            width: 230px;
+          }
+          >span.two{
+            width: 185px;
+          }
+          >span.three{
+            width: 260px;
+          }
+          >span.four{
+            width: 225px;
+          }
+          >span:last-child{
+            //width: 365px;
+          }
+        }
+
+      }
+      >h3.title{
+        color: #0098e4;
+        font-size: 16px;
+      }
+      >.baseInfo{
+        padding:0 48px;
+        font-size: 16px;
+        line-height: 30px;
+        span.circle{
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          background-color: #0098e4;
+          border-radius: 50%;
+        }
+      }
+      >.table{
+        padding:0 48px;
+        text-align: center;
+        font-size: 16px;
+        >.el-row{
+          border-top:1px solid #cccccc;
+          border-left:1px solid #cccccc;
+          >.el-col{
+            border-bottom:1px solid #cccccc;
+            border-right:1px solid #cccccc;
+            line-height: 50px;
+          }
+          >.el-col.type{
+            line-height: 40px;
+          }
+          >.el-col.typeLeft{
+            line-height: 327px;
+          }
+        }
+        >.el-row.img{
+          >.el-col{
+            line-height: 160px;
+            height: 160px;
+            ul{
+              padding-left: 20px;
+              li{
+                float: left;
+                width: 110px;
+                height: 110px;
+                margin-right: 15px;
+                img{
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
+            }
+          }
+        }
+
+
+      }
+      >.opt{
+        padding:5px 60px;
+        font-size: 16px;
+        background-color: #f9f9f9;
+        >.el-select{
+          margin-left: 15px;
+        }
+      }
+      >.btn{
+        padding-top: 90px;
+        text-align: center;
+        >button{
+          width: 108px;
+          height: 30px;
+          background-color: #0098e4;
+          border-radius: 30px;
+          font-size: 18px;
+          color: #ffffff;
+          margin-right: 15px;
+          cursor: pointer;
+        }
+        >button:first-child{
+          background-color: #fe8446;
+        }
+      }
+    }
+  }
+}

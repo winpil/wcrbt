@@ -1,0 +1,73 @@
+8
+
+dir
+5
+https://laptop-hm5vj82c/svn/kd/wecatRobot/WebRoot/web/code/modules
+https://laptop-hm5vj82c/svn/kd
+
+
+
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7e1568f4-c5be-2f47-bac6-4d4f34e35b46
+
+assess
+dir
+
+commandCenter
+dir
+
+common
+dir
+
+dataBase
+dir
+
+dayPatrol
+dir
+
+index.html
+file
+
+
+
+
+2017-10-27T08:03:14.913000Z
+e746bb1da7a1de31a6f4bfd59e33f69a
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+lawEnforcement
+dir
+
+login.html
+file
+
+
+
+
+2017-10-27T08:03:14.913000Z
+07e94972f264adaba8d536678ff005f1
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+specificTasks
+dir
+

@@ -1,0 +1,79 @@
+8
+
+dir
+5
+https://laptop-hm5vj82c/svn/kd/wecatRobot/src/com/java/dao
+https://laptop-hm5vj82c/svn/kd
+
+
+
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7e1568f4-c5be-2f47-bac6-4d4f34e35b46
+
+SyncFieldMappedDao.java
+file
+
+
+
+
+2017-10-27T08:03:15.280000Z
+1960efc2f86b929734cb597bcfcb5282
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+SyncLogDao.java
+file
+
+
+
+
+2017-10-27T08:03:15.280000Z
+9436c6cfbb4fb5341afa54a4373694e6
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+SyncProjectMappedDao.java
+file
+
+
+
+
+2017-10-27T08:03:15.281000Z
+60f84f7481061c2ce53d2e78ca10f9da
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+SyncTypeMappedDao.java
+file
+
+
+
+
+2017-10-27T08:03:15.282000Z
+8c997e060c1bfbd8036d7a49503a92d0
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+mappers
+dir
+

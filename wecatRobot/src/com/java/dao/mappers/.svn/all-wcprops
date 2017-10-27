@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/dao/mappers
+END
+SyncTypeMappedDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/dao/mappers/SyncTypeMappedDao.xml
+END
+SyncLogDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/dao/mappers/SyncLogDao.xml
+END
+SyncProjectMappedDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/dao/mappers/SyncProjectMappedDao.xml
+END
+SyncFieldMappedDao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/dao/mappers/SyncFieldMappedDao.xml
+END

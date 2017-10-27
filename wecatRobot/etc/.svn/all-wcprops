@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/kd/!svn/ver/5/wecatRobot/etc
+END
+spring-context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/kd/!svn/ver/5/wecatRobot/etc/spring-context.xml
+END
+shiro-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/kd/!svn/ver/5/wecatRobot/etc/shiro-config.xml
+END
+spring-mvc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/kd/!svn/ver/5/wecatRobot/etc/spring-mvc.xml
+END
+ehcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/kd/!svn/ver/5/wecatRobot/etc/ehcache.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/kd/!svn/ver/5/wecatRobot/etc/mybatis-config.xml
+END
+weixin_menu.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/kd/!svn/ver/5/wecatRobot/etc/weixin_menu.txt
+END
+config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/kd/!svn/ver/5/wecatRobot/etc/config.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/kd/!svn/ver/5/wecatRobot/etc/log4j.properties
+END

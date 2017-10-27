@@ -1,0 +1,91 @@
+8
+
+dir
+5
+https://laptop-hm5vj82c/svn/kd/wecatRobot/WebRoot/web
+https://laptop-hm5vj82c/svn/kd
+
+
+
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7e1568f4-c5be-2f47-bac6-4d4f34e35b46
+
+code
+dir
+
+css
+dir
+
+details.html
+file
+
+
+
+
+2017-10-27T08:03:14.926000Z
+6c6a14f173586d92625a139c01439830
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+img
+dir
+
+index.html
+file
+
+
+
+
+2017-10-27T08:03:15.009000Z
+7fd0a5072aaec4f6036d5b0caa4fbe7c
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+js
+dir
+
+list.html
+file
+
+
+
+
+2017-10-27T08:03:15.228000Z
+2b114c45b0afeb05854e9fc6f241ecbd
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+search.html
+file
+
+
+
+
+2017-10-27T09:04:39.837000Z
+b51742b551abcc0cda706f9d31a7c136
+2017-10-27T09:10:37.136145Z
+5
+hzh
+
+test
+dir
+

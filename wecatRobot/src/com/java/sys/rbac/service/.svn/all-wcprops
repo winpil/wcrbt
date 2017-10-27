@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service
+END
+SysRoleUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysRoleUserService.java
+END
+SysProvinceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysProvinceService.java
+END
+SysPermService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysPermService.java
+END
+SysRolePermService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysRolePermService.java
+END
+SysMenuService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysMenuService.java
+END
+SysCityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysCityService.java
+END
+SysUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysUserService.java
+END
+SysColumnService.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysColumnService.java
+END
+SysDictService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysDictService.java
+END
+SysGeneratorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysGeneratorService.java
+END
+SysDistrictService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysDistrictService.java
+END
+SysRoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/service/SysRoleService.java
+END

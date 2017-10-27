@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity
+END
+SysDict.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysDict.java
+END
+SysCity.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysCity.java
+END
+SysDistrict.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysDistrict.java
+END
+SysMenu.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysMenu.java
+END
+SysRoleUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysRoleUser.java
+END
+SysProvince.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysProvince.java
+END
+SysRolePerm.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysRolePerm.java
+END
+SysTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysTable.java
+END
+SysColumn.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysColumn.java
+END
+SysPerm.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysPerm.java
+END
+SysRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysRole.java
+END
+SysUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/entity/SysUser.java
+END

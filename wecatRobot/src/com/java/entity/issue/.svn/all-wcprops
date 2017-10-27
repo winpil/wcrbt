@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue
+END
+FieldTypes.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/FieldTypes.java
+END
+Assignee.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/Assignee.java
+END
+Reporter.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/Reporter.java
+END
+MyIssueType.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/MyIssueType.java
+END
+FieldNames.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/FieldNames.java
+END
+Value.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/Value.java
+END
+MyProject.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/entity/issue/MyProject.java
+END

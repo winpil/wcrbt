@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao
+END
+SysPermDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysPermDao.java
+END
+SysColumnDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysColumnDao.java
+END
+SysRolePermDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysRolePermDao.java
+END
+SysRoleUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysRoleUserDao.java
+END
+SysMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysMenuDao.java
+END
+SysCityDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysCityDao.java
+END
+SysDistrictDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysDistrictDao.java
+END
+SysProvinceDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysProvinceDao.java
+END
+SysUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysUserDao.java
+END
+SysDictDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysDictDao.java
+END
+SysRoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/src/com/java/sys/rbac/dao/SysRoleDao.java
+END

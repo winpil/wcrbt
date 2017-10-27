@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/kd/!svn/ver/5/wecatRobot/etc/template
+END
+return.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/return.ftl
+END
+dao.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/dao.ftl
+END
+mapper.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/mapper.ftl
+END
+service.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/service.ftl
+END
+webController.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/webController.ftl
+END
+entity.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/entity.ftl
+END
+jspList.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/jspList.ftl
+END
+jspForm.ftl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/kd/!svn/ver/5/wecatRobot/etc/template/jspForm.ftl
+END

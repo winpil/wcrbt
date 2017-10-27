@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/peopleList.css"/>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content inspectionTeamPage" id="content">
+    <!--对话框-查看-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    巡查组信息
+                    <span @click.stop="maskShow=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div class="col-sm-5"><span>姓名：</span>唐某某</div>
+                        <div class="col-sm-4"><span>性别：</span>男</div>
+                        <div class="col-sm-2"><span>年龄：</span>25</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5"><span>工号：</span>唐某某</div>
+                        <div class="col-sm-5"><span>角色：</span>男</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5"><span>手机号：</span>13566666666</div>
+                        <div class="col-sm-5"><span>QQ：</span>1111111111</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5"><span>微信：</span>4565478978</div>
+                        <div class="col-sm-5"><span>邮箱：</span>78989798778</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><span>紧急联系人：</span>某某某</div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span>紧急联系方式：</span>4565478978</div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span>地址：</span>逢考撒地方健康快乐富家大室卡莉法</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!--对话框-编辑-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow2"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    人员信息编辑
+                    <span @click.stop="maskShow2=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">姓名：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-4"><span class="w66">性别：</span><input type="text"class="w120"/></div>
+                        <div class="col-sm-3"><span class="w66">年龄：</span><input style="width: 80px;" type="text"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">工号：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">角色：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">手机号：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">QQ：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">微信：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">邮箱：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><span class="w126">紧急联系人：</span><input type="text" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">紧急联系方式：</span><input type="text" class="w225"/></div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">地址：</span><input type="text" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">登录密码：</span><input type="text" class="w160"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn">保存</div>
+            </div>
+        </div>
+    </transition>
+    <!--对话框-新增-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow3"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    新增人员
+                    <span @click.stop="maskShow3=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">姓名：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-4"><span class="w66">性别：</span><input type="text"class="w120"/></div>
+                        <div class="col-sm-3"><span class="w66">年龄：</span><input style="width: 80px;" type="text"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">工号：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">角色：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">手机号：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">QQ：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4"><span class="w66">微信：</span><input type="text" class="w120"/></div>
+                        <div class="col-sm-6"><span class="w66">邮箱：</span><input type="text" class="w160"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><span class="w126">紧急联系人：</span><input type="text" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">紧急联系方式：</span><input type="text" class="w225"/></div>
+
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">地址：</span><input type="text" class="w225"/></div>
+                    </div>
+                    <div class="row">
+                        <div  class="col-sm-12"><span class="w126">登录密码：</span><input type="text" class="w160"/></div>
+                    </div>
+                </div>
+                <div class="saveBtn">保存</div>
+
+            </div>
+        </div>
+    </transition>
+    <div class="container-fluid w">
+
+
+        <div class="pageNav">
+            基础数据 > 人员管理
+        </div>
+
+        <div class="contentArea inspectionTeam peopleListPage">
+            <div class="contentTitle">
+                <span class="lineBlue"></span>
+                <span>人员列表</span>
+            </div>
+            <div class="inquiryMsg">
+                <form action="">
+                    <div class="inquiry_content">
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w50">姓名</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">角色</span>
+                                <select class="w126" name="" id="">
+                                    <option value="">全部</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span class="w100">紧急联系人</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w50">手机号</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">性别</span>
+                                <select class="w126" name="" id="">
+                                    <option value="">商场</option>
+                                </select>
+                            </li>
+                            <li>
+                                <span class="w100">紧急联系人方式</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w50">QQ</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">年龄</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">邮箱</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w50">微信</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">工号</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                            <li>
+                                <span class="w50">地址</span>
+                                <input class="w225" type="text"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="inquiryBtn">
+                        <div class="reset"><span></span>重置</div>
+                        <div class="inquiryBt"><span></span>查询</div>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <div class="addBtnBox">
+                    <button class="iconBtn addBtn" @click.stop="add()"><span></span>新增</button>
+                </div>
+                <div class="inspectionTeamList">
+                    <div class="companyListBox">
+                        <table class="companyList">
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>工号</th>
+                                <th>角色</th>
+                                <th >年龄</th>
+                                <th>性别</th>
+                                <th>手机号</th>
+                                <th >操作</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>某某某</td>
+                                <td>1321</td>
+                                <td>某某某领导</td>
+                                <td>45</td>
+                                <td>男</td>
+                                <td>13555555555</td>
+                                <td class="look"><span class="lookIcon"></span><a href="javascript:void(0)" @click.stop="look()">查看</a><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>某某某</td>
+                                <td>1321</td>
+                                <td>某某某领导</td>
+                                <td>45</td>
+                                <td>男</td>
+                                <td>13555555555</td>
+                                <td class="look"><span class="lookIcon"></span><a href="javascript:void(0)" @click.stop="look()">查看</a><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#content",
+
+        data:{
+            maskShow:false,
+            maskShow2: false,
+            maskShow3: false,
+            form:{
+                name:"jjj",
+                type:"",
+                desc:"我是职责"
+            }
+        },
+        methods:{
+            onSubmit:function(){
+                console.log(123)
+            },
+
+            look:function(){
+                this.maskShow = true
+            },
+            edit:function(){
+                this.maskShow2 = true
+            },
+            add:function(){
+                this.maskShow3 = true
+            }
+
+        }
+    });
+    console.log(vm)
+
+</script>
+</html>
+
+
+
+
+

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys
+END
+sysPermList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysPermList.jsp
+END
+sysPermForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysPermForm.jsp
+END
+noFileReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/noFileReq.jsp
+END
+sysUserForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysUserForm.jsp
+END
+sysUserList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysUserList.jsp
+END
+apiConstanceList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/apiConstanceList.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/index.jsp
+END
+sysDictForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysDictForm.jsp
+END
+sysMenuForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysMenuForm.jsp
+END
+sysRoleDistributeForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysRoleDistributeForm.jsp
+END
+sysRoleForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysRoleForm.jsp
+END
+sysRoleList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysRoleList.jsp
+END
+sysImgList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysImgList.jsp
+END
+sysGenList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysGenList.jsp
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/login.jsp
+END
+sysFileList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysFileList.jsp
+END
+apiSignForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/apiSignForm.jsp
+END
+sysUserEditPwdForm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysUserEditPwdForm.jsp
+END
+sysMenuList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysMenuList.jsp
+END
+sysDictList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/kd/!svn/ver/5/wecatRobot/WebRoot/WEB-INF/views/sys/sysDictList.jsp
+END

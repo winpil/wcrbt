@@ -1,0 +1,181 @@
+/*css ³õÊ¼»¯ */
+*{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol ,li{
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "ËÎÌå";
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+textarea {
+    resize: none;
+}
+img {
+    border: 0;
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+}
+
+body {
+    font: 12px "Microsoft Yahei", Verdana, "\5b8b\4f53"; 
+    color: #666;
+    background: #fff;
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+
+.w {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.al {
+    text-align: left;
+}
+
+.ac {
+    text-align: center;
+}
+
+.ar {
+    text-align: right;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+
+.hide {
+    display: none;
+}
+.pd8{
+    padding-left: 0.42rem;
+}
+.fixed{
+	position: fixed;
+}
+.w126{
+    width: 125px;
+}
+.w225{
+    width: 225px;
+}
+.w92{
+    width: 92px;
+}
+.w85{
+    width: 85px;
+}
+.w80{
+    width: 80px;
+}
+.w160{
+    width: 160px;
+}
+.circle{
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #0098e4;
+    margin-right: 10px;
+}
+/*css³õÊ¼»¯Íê³É*/
+.w230{
+    width: 230px;
+}
+.w140{
+    width: 140px;
+}
+.move-enter-active,.move-leave-active{
+    transition: opacity ease-out .5s;
+    /*transform ease-out .5s;*/
+}
+.move-enter,.move-leave{
+    /*transform: translateX(100px);*/
+    opacity: 0;
+}
+.bdb{
+    border-bottom:1px solid #cccccc;
+}
+.bdt{
+    border-top:1px solid #cccccc;
+}
+.bdl{
+    border-left:1px solid #cccccc;
+}
+.bdr{
+    border-right:1px solid #cccccc;
+}

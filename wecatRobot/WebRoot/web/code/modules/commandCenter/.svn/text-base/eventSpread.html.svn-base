@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/commandCenter/eventSpread.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">安监</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dataBase/companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="../dataBase/network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="../dataBase/peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="../dataBase/roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content" id="content">
+    <div class="container-fluid w">
+
+        <div class="pageNav">
+            指挥中心  >  事件分布
+
+        </div>
+        <div class="contentArea">
+            <div class="contentTitle">
+                <span class="lineBlue"></span>
+                <span>事件分布</span>
+            </div>
+            <div class="mapContent">
+                <!--<img src="../../images/map2.png" alt=""/>-->
+
+                <div id="allmap"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VlEjaCydESrVjEc7bn7mEb5AdasayIDo"></script>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.404, 39.915);
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom(true);//可以滚轮缩放
+    // 编写自定义函数,创建小人
+    function addMarker(point,index){
+//        给每个小人创建自定义信息窗口
+        var sContent ='<div style=" font-size: 14px;width: 380px;height:60px;">' +
+                '<img style="float: left;" id="imgDemo" src="../../images/icon_warn.png" alt=""/>' +
+                '<div style="display: inline-block;margin-left:10px; line-height: 24px;">' +
+                '<div style="float: left;">' +
+                '<div>王某某（NO.15）</div>' +
+                '<div>13788888888</div>' +
+                '</div>' +
+                '<div style="float:left; border-left: 1px solid #ccc;padding-left: 10px;">' +
+                '<div>所属巡查组：第三巡查组</div>' +
+                '<div>状态：离开所属网络</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+        var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+        var myIcon = new BMap.Icon("../../images/icon_duty_non.png", new BMap.Size(46,46));//小人头像
+        var marker = new BMap.Marker(point,{icon:myIcon});//小人位置
+        map.addOverlay(marker);//添加小人
+        marker.addEventListener("click", function(){
+
+
+
+            this.openInfoWindow(infoWindow);
+            //图片加载完毕重绘infowindow
+            document.getElementById('imgDemo').onload = function (){
+                infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+            }
+        });
+    }
+    // 随机向地图添加10个事件经纬度
+    var bounds = map.getBounds();
+    var sw = bounds.getSouthWest();
+    var ne = bounds.getNorthEast();
+    var lngSpan = Math.abs(sw.lng - ne.lng);
+    var latSpan = Math.abs(ne.lat - sw.lat);
+    for (var i = 0; i < 10; i ++) {
+        var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+        addMarker(point,i);
+    }
+    //添加网格
+    var polygon1 = new BMap.Polygon([
+        new BMap.Point(116.387112,39.920977),
+        new BMap.Point(116.385243,39.913063),
+        new BMap.Point(116.394226,39.917988),
+        new BMap.Point(116.401772,39.921364),
+        new BMap.Point(116.41248,39.927893)
+    ], {strokeColor:"opacity",strokeWeight:1, strokeOpacity:0.2,fillColor:"yellow",fillOpacity:0.3});  //创建多边形
+    var polygon2 = new BMap.Polygon([
+        new BMap.Point(116.387112,39.921911),
+        new BMap.Point(116.385142,39.911011),
+        new BMap.Point(116.394122,39.911911),
+        new BMap.Point(116.401172,39.921311),
+        new BMap.Point(116.41218,39.921811)
+    ], {strokeColor:"opacity",strokeWeight:1, strokeOpacity:0.2,fillColor:"blue",fillOpacity:0.3});  //创建多边形
+    var polygon3 = new BMap.Polygon([
+        new BMap.Point(116.381112,39.920977),
+        new BMap.Point(116.381243,39.913063),
+        new BMap.Point(116.391226,39.917988),
+        new BMap.Point(116.401772,39.921364),
+        new BMap.Point(116.41148,39.927893)
+    ], {strokeColor:"opacity",strokeWeight:1, strokeOpacity:0.2,fillColor:"green",fillOpacity:0.3});  //创建多边形
+    map.addOverlay(polygon1);   //增加多边形
+    map.addOverlay(polygon2);   //增加多边形
+    map.addOverlay(polygon3);   //增加多边形
+
+    // 定义一个控件类,左上角
+    function ZoomControl(){
+        // 默认停靠位置和偏移量
+        this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+        this.defaultOffset = new BMap.Size(10, 10);
+    }
+    ZoomControl.prototype = new BMap.Control();
+    ZoomControl.prototype.initialize = function(map){
+        // 创建一个DOM元素
+        var divStr ='<div class="addEventBtn">' +
+                '</div>';
+
+        var div = $(divStr)[0];
+        //        事件
+        div.onclick = function(e){
+
+        }
+        // 添加DOM元素到地图中
+        map.getContainer().appendChild(div);
+        // 将DOM元素返回
+        return div;
+    };
+    // 创建控件
+    var myZoomCtrl = new ZoomControl();
+    // 添加到地图当中
+    map.addControl(myZoomCtrl);
+
+    // 定义一个控件类,右上角
+    function ZoomControl2(){
+        // 默认停靠位置和偏移量
+        this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+        this.defaultOffset = new BMap.Size(10, 10);
+    }
+    ZoomControl2.prototype = new BMap.Control();
+    ZoomControl2.prototype.initialize = function(map){
+        // 创建一个DOM元素
+        var divStr ='<div class="inquiryEvent">' +
+                ' <select name="" id="">' +
+                '<option value="8">8月</option>' +
+                '</select>' +
+                '<span class="ze"></span>' +
+                '<span class="mianZe"></span>' +
+                '<span class="deng"></span>' +
+                '<span class="yao"></span>' +
+                '</div>';
+
+
+        var div = $(divStr)[0];
+        //        事件
+        div.onclick = function(e){
+
+        };
+        // 添加DOM元素到地图中
+        map.getContainer().appendChild(div);
+        // 将DOM元素返回
+        return div;
+    };
+    // 创建控件
+    var myZoomCtrl2 = new ZoomControl2();
+    // 添加到地图当中
+    map.addControl(myZoomCtrl2);
+
+//    创建表单弹出框
+    // 定义一个控件类,左上角
+    function ZoomControl(){
+        // 默认停靠位置和偏移量
+        this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+        this.defaultOffset = new BMap.Size(10, 10);
+    }
+    ZoomControl.prototype = new BMap.Control();
+    ZoomControl.prototype.initialize = function(map){
+        // 创建一个DOM元素
+        var divStr ='<div class="addEventBtn">' +
+                '</div>';
+
+        var div = $(divStr)[0];
+        //        事件
+        div.onclick = function(e){
+            $(".EventForm").show(200);
+        };
+        // 添加DOM元素到地图中
+        map.getContainer().appendChild(div);
+        // 将DOM元素返回
+        return div;
+    };
+    // 创建控件
+    var myZoomCtrl = new ZoomControl();
+    // 添加到地图当中
+    map.addControl(myZoomCtrl);
+
+    // 定义一个控件类,中间
+    function ZoomControl3(){
+        // 默认停靠位置和偏移量
+        this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+        this.defaultOffset = new BMap.Size(380, 200);
+    }
+    ZoomControl3.prototype = new BMap.Control();
+    ZoomControl3.prototype.initialize = function(map){
+        // 创建一个DOM元素
+        var divStr ='<div class="EventForm" style="display:none">' +
+                '<h3>新建事件' +
+                '<span class="cancelBtn"></span>' +
+                '</h3>' +
+                '<ul>' +
+                '<li>' +
+                    '<span>事件类型</span>' +
+                    '<input type="text"/>' +
+                '</li>' +
+                '<li>' +
+                    '<span>事故时间</span>' +
+                    '<input type="text"/>' +
+                '</li>' +
+                '<li>' +
+                    '<span>事故责任人</span>' +
+                    '<input type="text"/>' +
+                '</li>' +
+                '<li>' +
+                    '<span class="eventMiao">事故描述</span>' +
+                    '<textarea name="" id="" cols="32" rows="2"></textarea>' +
+                '</li>' +
+                '<li>' +
+                    '<span>公司名称</span>' +
+                    '<input type="text"/>' +
+                '</li>' +
+                '<li>' +
+                    '<a href="javascript:;">保存</a>' +
+                '</li>' +
+                '</ul>' +
+                '</div>';
+
+        var div = $(divStr)[0];
+        // 事件
+
+        div.onclick = function(e){
+
+        };
+        // 添加DOM元素到地图中
+        map.getContainer().appendChild(div);
+        $(".cancelBtn").on("click",function(){
+            $(".EventForm").hide(200)
+        });
+        // 将DOM元素返回
+        return div;
+    };
+    // 创建控件
+    var myZoomCtrl3 = new ZoomControl3();
+    // 添加到地图当中
+    map.addControl(myZoomCtrl3);
+
+</script>
+</html>
+

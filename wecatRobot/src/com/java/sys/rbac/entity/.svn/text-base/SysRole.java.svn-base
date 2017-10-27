@@ -1,0 +1,23 @@
+package com.java.sys.rbac.entity;
+
+import com.java.sys.basic.entity.BaseEntity;
+import java.util.Date;
+
+public class SysRole extends BaseEntity {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private String name;	//角色名称
+	
+	public SysRole() {
+		super();
+	}
+	
+    public String getName() {
+    	return name;
+    }
+    public void setName(String name) {
+    	this.name = name;
+    }
+	
+}
