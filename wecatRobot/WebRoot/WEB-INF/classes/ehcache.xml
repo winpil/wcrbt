@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">  
+  	
+  	<!-- 
+  	达到内存上限后缓存文件保存位置，可以直接设为 /xx/xx等等指定路径
+  	java.io.tempdir：操作系统不同 这个系统属性所表示的目录也不同，
+  	On Windows: java.io.tmpdir:[C:\DOCUME~1\joshua\LOCALS~1\Temp\]，
+  	On Linux: java.io.tmpdir: [/tmp]
+  	 -->
+    <diskStore path="java.io.tempdir"/>
+     
+     <!-- 
+     maxElementsInMemory ：
+     cache 中最多可以存放的元素的数量，如果cache中的元素超过这个数值，就看 overflowToDisk 这个值，overflowToDisk 是true的话，多出的元素放入
+	  磁盘文件中，overflowToDisk 是false的话，根据memoryStoreEvictionPolicy的策略替换cache中原有的元素。
+	 memoryStoreEvictionPolicy 内存存储与释放策略。有三个值 ：
+	 LRU －least recently used（最近最少使用）、
+	 LFU －least frequently used（最不经常使用）、
+	 FIFO－first in first out, the oldest element by creation time（清除最早缓存的数据，不关心是否经常使用，即先进先出）
+	 eternal ：
+	  意思是是否永驻内存。如果值是true，cache中的元素将一直保存在内存中，不会因为时间超时而丢失，所以在这个值为true的
+	  时候，timeToIdleSeconds和timeToLiveSeconds两个属性的值就不起作用了。
+	 timeToIdleSeconds ：
+	  就是访问这个cache中元素的最大间隔时间。如果超过这个时间没有访问这个cache中的某个元素，那么这个元素将被从cache中清除。
+	 timeToLiveSeconds : 
+	 这是cache中元素的生存时间。意思是从cache中的某个元素从创建到消亡的时间，从创建开始计时，当超过这个时间，这个元素将被从cache中清除。
+	 overflowToDisk ：
+	 溢出是否写入磁盘。系统会根据标签<diskStore 中path的值查找对应的属性值，文件的名称是cache的名称，后缀data
+	 diskPersistent ：
+	 是否持久化磁盘缓存。当这个属性的值为true时，系统在初始化的时候会在磁盘中查找文件名为cache名称，后缀名为index的的文件。
+	 要想把cache真正持久化到磁盘，写程序时必须注意，在是用net.sf.ehcache.Cache的void put (Element element)方法后要使用void flush()方法。
+     -->
+    <defaultCache 
+    	maxElementsInMemory="10000" 
+        memoryStoreEvictionPolicy="LFU" 
+        eternal="true" 
+        timeToIdleSeconds="7200" 
+        timeToLiveSeconds="7200" 
+        overflowToDisk="true" 
+        diskPersistent="true" />
+        
+        
+    <!-- 
+    name：cacheManager.getCache("xxx")的时候xxx与下面cache_java对应
+     -->
+    <cache 
+    	name="cache_java" 
+        memoryStoreEvictionPolicy="LFU" 
+        maxElementsInMemory="10000" 
+        eternal="true" 
+        timeToIdleSeconds="7200" 
+        timeToLiveSeconds="7200" 
+        overflowToDisk="true" />
+</ehcache> 

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/static/Jcrop/js,WebRoot/swagger/lib,WebRoot/static/ckfinder,WebRoot/static/jquery-select2,WebRoot/static/ueditor/ueditor.all.min.js,WebRoot/static/Jcrop/myDemo/jquery.min.js,WebRoot/static/ueditor/third-party,WebRoot/static/swagger/lib,WebRoot/web/code,WebRoot/static/sys/cut/jquery.min.js,WebRoot/static/cut/jquery.min.js,WebRoot/static/ckeditor,WebRoot/static/ueditor/jsp/config.json,WebRoot/static/jquery/jquery-1.8.3.min.js
+validator.Unchecked=

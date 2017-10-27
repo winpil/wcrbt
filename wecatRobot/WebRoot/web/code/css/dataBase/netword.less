@@ -1,0 +1,301 @@
+.redColor{
+  color: red;
+}
+.borderBottom{
+  border-bottom: 1px solid #ccc;
+}
+.pBottotm{
+  padding-bottom: 20px;
+}
+.w180{
+  width: 180px;
+}
+.container-fluid{
+  padding: 0;
+}
+.contentArea{
+  padding-top: 12px;
+  color: #333;
+  font-size: 16px;
+  padding-bottom: 30px;
+}
+.networkPage{
+  background-color: #fff;
+  padding-left: 46px;
+  padding-right: 46px;
+  .inquiry {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 24px;
+    margin-top: 32px;
+    border-bottom: 1px solid #ccc;
+    >div{
+      display: inline-block;
+      position: relative;
+      span{
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: url("../../images/icon_search_blue.png") no-repeat center;
+        left: 14px;
+        top: 50%;
+        margin-top: -8px;
+      }
+      input {
+        width: 366px;
+        height: 34px;
+        -webkit-border-radius: 17px;
+        -moz-border-radius: 17px;
+        border-radius: 17px;
+        border: 1px solid #ccc;
+        padding-left: 42px;
+        background-color: #fff;
+        line-height: 34px;
+        font-size: 14px;
+      }
+    }
+
+  }
+}
+.inquiryBtnCom{
+  background-color: #1c9bd9;
+  width: 100px;
+  height: 34px;
+  color: #fff;
+  -webkit-border-radius: 17px;
+  -moz-border-radius: 17px;
+  border-radius: 17px;
+  margin-left: 12px;
+  font-size: 14px;
+}
+.iconBtn{
+  width: 100px;
+  height: 32px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  background-color: #1c9bd9;
+  color: #fff;
+  span{
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-top: -4px;
+  }
+}
+.addBtn span{
+  width: 16px;
+  height: 16px;
+  background: url("../../images/icon_add_white.png") no-repeat center;
+}
+.networkPage >div:last-child .addBtnBox{
+  text-align: right;
+  margin-top: 18px;
+  margin-bottom: 28px;
+}
+.networkList>ul{
+  border: 1px solid #ccc;
+  .row{
+    margin: 0;
+    line-height: 34px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    div{
+      padding:0;
+      text-align: center;
+    }
+    .lookBtn,.editBtn{
+      color: #0098E3;
+      margin-right: 4px;
+    }
+    .deleteBtn{
+      color: #D1D1D1;
+      margin-right: 4px;
+    }
+    .downUpicon{
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: url("../../images/icon_drop_down_edit.png") no-repeat center;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    .jiedaoIcon{
+      display: inline-block;
+      width: 21px;
+      height: 14px;
+      background: url("../../images/jiedao.jpg") no-repeat center;
+      margin-left: 20px;
+    }
+    .pianquIcon{
+      display: inline-block;
+      width: 21px;
+      height: 16px;
+      background: url("../../images/pianqu.jpg") no-repeat center;
+      margin-left: 20px;
+    }
+    .wangluoIcon{
+      display: inline-block;
+      width: 21px;
+      height: 16px;
+      background: url("../../images/wangge.jpg") no-repeat center;
+      margin-left: 20px;
+    }
+    .lookIcon,
+    .editIcon,
+    .deleteIcon{
+      display: inline-block;
+      width: 22px;
+      height: 14px;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+    .addPianQuBtn,
+    .addWangLuoBtn
+    {
+      display: inline-block;
+      width: 100px;
+      height: 20px;
+      line-height: 20px;
+      background-color: #0098E3;
+      color: #fff;
+      border-radius: 10px;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .addWangLuoBtn{
+      width: 120px;
+    }
+    .addPianQuBtn .addIcon,
+    .addWangLuoBtn .addIcon{
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      margin-top: -3px;
+      background: url("../../images/icon_add_white.png") no-repeat center;
+    }
+    .lookIcon{
+      background: url("../../images/icon_look.png") no-repeat center;
+    }
+    .editIcon{
+      background: url("../../images/icon_edit.png") no-repeat center;
+    }
+    .deleteIcon{
+      background: url("../../images/icon_delete.png") no-repeat center;
+    }
+  }
+  .row.huiColor{
+    background-color: #f2f2f2;
+    border-top: 1px solid #fff;
+  }
+  .listTitle{
+    background-color: #E0F7FF;
+  }
+}
+//µ¯¿ò
+.move-enter-active,.move-leave-active{
+  transition: opacity ease-out 0.3s;
+  /*transform ease-out .5s;*/
+}
+.move-enter,.move-leave{
+  /*transform: translateX(100px);*/
+  opacity: 0;
+}
+.mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .2);
+  z-index: 99;
+  >div:first-child{
+    margin: 100px auto;
+    width: 1000px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    display: block;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    .modelTop{
+      padding-left: 28px;
+      line-height: 50px;
+      border-bottom: 1px solid #ccc;
+      font-size: 18px;
+      span{
+        position: absolute;
+        right: 20px;
+        width: 22px;
+        height: 22px;
+        background: url("../../images/icon_cancel.png") no-repeat center;
+        top: 50%;
+        margin-top: -11px;
+        cursor: pointer;
+      }
+    }
+    .modelContent{
+      padding: 10px 50px 10px 50px;
+      font-size: 16px;
+      .row>div{
+        padding: 0;
+        margin-top: 20px;
+        >span{
+          display: inline-block;
+        }
+        >input{
+          border: 1px solid #ccc;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          height: 30px;
+        }
+        .huaFen{
+          width: 80%;
+        }
+        .radio{
+          display: inline-block;
+        }
+      }
+      .row>.pianQuMiaoShu{
+        input{
+          width: 80%;
+        }
+      }
+    }
+    .saveBtn {
+      width: 132px;
+      height: 36px;
+      -webkit-border-radius: 18px;
+      -moz-border-radius: 18px;
+      border-radius: 18px;
+      background-color: #1c9bd9;
+      line-height: 36px;
+      text-align: center;
+      color: #fff;
+      margin: 30px auto;
+      cursor: pointer;
+    }
+  }
+  p{
+    padding-left: 40px;
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+    color: #666;
+    span{
+      margin-right: 30px;
+    }
+  }
+}
+
+//µØÍ¼
+#allmap{
+    width: 100%;
+    height: 285px;
+
+}
+
+
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd 
+	http://www.springframework.org/schema/task 
+	http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
+	
+	<!-- 引入jdbc的外部属性文件 -->
+	<context:property-placeholder location="classpath:config.properties" />
+	<!-- Spring组件注解扫描 -->
+	<context:component-scan base-package="com.java.*" />
+	<!-- task任务扫描注解 -->
+	<task:annotation-driven/>
+    
+	<!-- 配置连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+        destroy-method="close" 
+        p:driverClassName="${jdbc.driver}"
+        p:url="${jdbc.url}" 
+        p:username="${jdbc.username}"
+        p:password="${jdbc.password}">
+    </bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    
+	
+	<bean id="sqlSessionFactory" class="com.java.filter.FixedSqlSessionFactory">
+		<!-- dataSource属性指定要用到的连接池 -->
+		<property name="dataSource" ref="dataSource"/>				
+		<!-- configLocation属性指定mybatis的核心配置文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- 所有配置的mapper文件 -->
+		<property name="mapperLocations" value="classpath*:com/java/**/mappers/*.xml" />
+	</bean>
+	<!-- 没有必要在Spring的XML配置文件中注册所有的映射器，相反，可以使用一个MapperScannerConfigurer，它将会查找类路径下所有的映射器
+		   并自动将它们创建成MapperFactoryBeans -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- basePackage属性是让你为映射器接口文件设置基本的包路径，可以用分号或逗号作为分隔符设置多于一个的包路径 -->
+     	<property name="basePackage" value="com.java.dao;com.java.sys.rbac.dao" />
+  	</bean>
+  	
+  	<!-- ehcache配置 -->
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:configLocation="classpath:ehcache.xml"/>
+	<!-- 配置demoCache -->
+	<bean id="demoCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="ehcacheManager" />
+		<property name="cacheName">
+			<value>cache_java</value>
+		</property>
+	</bean>
+	
+</beans>
+
+
+
+

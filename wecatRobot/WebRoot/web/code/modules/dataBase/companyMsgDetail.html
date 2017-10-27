@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/companyMsg.css"/>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.htlm">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content" id="content">
+    <!--弹出框-->
+    <el-dialog title="企业信息驳回" v-model="dialogVisible" size="tiny">
+
+        <el-form ref="form" :model="form" label-width="80px">
+            <el-input type="textarea" :rows="5" v-model="form.desc"></el-input>
+        </el-form>
+
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="onSubmit">确定</el-button>
+        </span>
+    </el-dialog>
+    <!--弹出框end-->
+    <div class="container-fluid w">
+
+
+        <div class="pageNav">
+            基础数据  >  企业信息列表 > 企业信息详情
+
+        </div>
+
+        <div class="contentArea">
+            <div class="contentTitle">
+                <span class="lineBlue"></span>
+                <span>企业信息详情</span>
+            </div>
+            <div class="companyMsgDetail">
+                <div class="pageNavY">基本信息</div>
+                <ul>
+                    <li class="row">
+                        <div class="col-sm-4"><span class="circle"></span>单位名称：广州市萝岗香百味餐厅</div>
+                        <div class="col-sm-4"><span class="circle"></span>建筑高度：158m</div>
+                        <div class="col-sm-3"><span class="circle"></span>企业类别：商场</div>
+                        <div class="col-sm-4"><span class="circle"></span>单位性质：个体户</div>
+                        <div class="col-sm-4"><span class="circle"></span>面积平方米：4256</div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"><span class="circle"></span>单位类型：餐饮业</div>
+                        <div class="col-sm-4"><span class="circle"></span>楼层数（层）：26</div>
+                    </li>
+                    <li class="row">
+                        <div class="col-sm-4"><span class="circle"></span>责任人：米某某</div>
+                        <div class="col-sm-4"><span class="circle"></span>责任人联系电话：158m</div>
+                        <div class="col-sm-3"><span class="circle"></span>法人代表：商场</div>
+                        <div class="col-sm-4"><span class="circle"></span>法人代表联系电话：13729896565</div>
+                        <div class="col-sm-4"><span class="circle"></span>工商注册号：414141456545645646545465</div>
+                    </li>
+                    <li class="row">
+                        <div class="col-sm-4"><span class="circle"></span>地址：广州市天河区天河南路01号</div>
+                        <div class="mapImg">
+                            <img src="../../images/map1.png" alt=""/>
+                        </div>
+                    </li>
+                </ul>
+                <div class="pageNavY">安全信息</div>
+                <ul>
+                    <li class="row">
+                        <div class="col-sm-4"><span class="circle"></span>安全级别：一般</div>
+                        <div class="col-sm-4"><span class="circle"></span>所属网络：小网格A 1</div>
+                        <div class="col-sm-3"><span class="circle"></span>是否重点单位：一般</div>
+                        <div class="col-sm-4"><span class="circle"></span>巡查频率：较少</div>
+                        <div class="col-sm-4"><span class="circle"></span>涉危险化学品单位：不涉及</div>
+                        <div class="col-sm-3"><span class="circle"></span>涉职业病类型：不涉及</div>
+
+                    </li>
+                    <li class="row">
+                        <div class="col-sm-4"><span class="circle"></span>备注：暂无</div>
+                    </li>
+                </ul>
+                <div class="pageNavY">门面照</div>
+                <ul>
+                    <li class="row">
+                        <div class="doorImgs">
+                            <img src="../../images/linshi1.jpg" alt=""/>
+                        </div>
+
+                    </li>
+                </ul>
+                <div class="pageNavY">相关图片</div>
+                <ul>
+                    <li class="row">
+                        <div class="doorImgs">
+                            <img src="../../images/linshi1.jpg" alt=""/>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <div class="danger">
+                        <div class="contentTitle">
+                            <span class="lineBlue"></span>
+                            <span>操作</span>
+                        </div>
+                        <div class="dangerLevel">
+                            隐患级别
+                            <select name="" id="">
+                                <option value="">一般隐患</option>
+                            </select>
+                        </div>
+                    </div>
+                </ul>
+                <div class="guidang">
+                    <div  @click="dialogVisible = true" class="reset">驳回</div>
+                    <div class="inquiryBt">归档</div>
+                </div>
+            </div>
+            <div class="historyRounds ">
+                <div class="hRtitle">
+                    <span class=""></span>历史巡查记录
+                </div>
+                <table class="table">
+                    <tr>
+                        <th>历史巡查</th>
+                        <th>时间</th>
+                        <th>巡查员</th>
+                        <th>巡查结果</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr class="green">
+                        <td>专项任务</td>
+                        <td>2017/02/20 17:50</td>
+                        <td>唐某某</td>
+                        <td>安全</td>
+                        <td><span></span>查看详情</td>
+                    </tr>
+                    <tr class="red">
+                        <td>专项任务</td>
+                        <td>2017/02/20 17:50</td>
+                        <td>唐某某</td>
+                        <td>安全</td>
+                        <td><span></span>查看详情</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            dialogVisible:false,
+            form:{
+                name:"",
+                desc:"请输入驳回原因"
+            }
+
+        },
+        methods:{
+            onSubmit:function(){
+                console.log(123)
+            }
+        }
+    });
+console.log(vm)
+
+</script>
+</html>
+
+
+
+
+

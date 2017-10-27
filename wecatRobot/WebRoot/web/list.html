@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="wap-font-scale" content="no" />
+<meta name="renderer" content="webkit" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="author" content="Your Name" />
+<title>恋上购优惠券</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="js/rem.js"></script>
+<link rel="stylesheet" href="css/public.css" />
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="currentPage" id="currentPage">
+    <header class="Header">
+    	<div class="goBack" onclick="window.history.go(-1);"><i class="icons">&#xf124;</i></div>
+	    <a class="search" href="search.html">
+	    	<i class="icons">&#xf1d9;</i>
+	    	<span id="searchTxt">搜索商品</span>
+	    	<b></b>
+	    </a>
+        <i class="linear close_search" id="close_search" style="display:none;">&#xe65d;</i>
+    </header>
+    <div class="module_container">
+    	<ul id="jsClick">
+    		<li class="class" data-nav="show_class"><i class="icons">&#xf104;</i><span>全部</span></li>
+    		<li class="platform platformBox" data-nav="show_platform"><i class="icons">&#xf104;</i><span>全平台</span></li>
+    		<!--<li class="price" data-nav="show_price"><span>价格</span></li>-->
+    		<li class="sort sortBox" data-nav="show_sort"><i class="icons">&#xf104;</i><span>最新</span></li>
+    	</ul>
+    </div>
+    <div class="module_fixed">
+    	<ul class="module" id="classContent"></ul>
+    	<ul class="module module_ul" id="platformBox">
+    		<li class="platform active" data-type="platform" data-val=""><span>全平台</span><i class="icons">&#xf122;</i></li>
+    		<li class="platform" data-type="platform" data-val="0"><span>淘宝</span><i class="icons">&#xf122;</i></li>
+    		<li class="platform" data-type="platform" data-val="1"><span>天猫</span><i class="icons">&#xf122;</i></li>
+    	</ul>
+    	<div class="module" id="priceBox">
+    		<div class="top">
+    			<span class="left">价格区间（元）</span>
+    			<input class="left" type="text" id="minPrice" />
+                <b class="left">-</b>
+                <input class="left" type="text" id="maxPrice" />
+    		</div>
+            <div class="btnBox">
+                <div class="button left" id="clearPrice">重置</div>
+                <div class="button right" id="goPrice">确定</div>
+            </div>
+    		
+    	</div>
+    	<div class="module module_ul" id="sortBox">
+    		<li class="sort active" data-type="sortName,orderBy" data-val=""><span>最新</span><i class="icons">&#xf122;</i></li>
+            <li class="sort" data-type="sortName" data-val="goods_month_sells"><span>销量优先</span><i class="icons">&#xf122;</i></li>
+            <li class="sort" data-type="sortName" data-val="coupon_rate"><span>优惠幅度</span><i class="icons">&#xf122;</i></li>
+            <li class="sort" data-type="sortName" data-val="goods_rate"><span>佣金比例</span><i class="icons">&#xf122;</i></li>
+            <li class="sort" data-type="sortName,orderBy" data-val="goods_price,1"><span>价格从低到高</span><i class="icons">&#xf122;</i></li>
+            <li class="sort" data-type="sortName,orderBy" data-val="goods_price,2"><span>价格从高到底</span><i class="icons">&#xf122;</i></li>
+    	</div>
+    </div>
+    <dl class="ListBox list_ListBox">
+    	<dd class="list_con">
+    		<ul id="listCon"></ul>
+    	</dd>
+		<div class="more" id="more" style="display:none;">上拉加载更多</div>
+		<div class="loading" id="loading"><img src="img/loading-1.gif" height="24" width="24"></div>
+		<div class="more" id="errorTxt"></div>
+    </dl>
+</div>
+
+<!-- 隐藏域 -->
+<form id="hiddenForm">
+    <input id="goods_class" type="hidden" name="goods_class" value="-1" />
+    <input id="platform" type="hidden" name="platform" value="" />
+    <input id="curPage" type="hidden" name="curPage" value="1" />
+    <input id="pageSize" type="hidden" name="pageSize" value="20" />
+    <input id="sortName" type="hidden" name="sortName" value="" />
+    <input id="orderBy" type="hidden" name="orderBy" value="" />
+    <input id="min_price" type="hidden" name="min_price" value="" />
+    <input id="max_price" type="hidden" name="max_price" value="" />
+    <input id="searchVal" type="hidden" name="searchVal" value="" />
+
+    <!-- 是否是搜索结果 -->
+    <input id="pageType" type="hidden" name="pageType" value="default" />
+</form>
+<div id="telBox" style="display:none"></div>
+
+<!-- 全部分类模版 -->
+<script id="tpl-class" type="text/html">
+    <li class="class" data-val="-1"><a href="javascript:void(0)" class="active">全部</a></li>
+    {{each $data}}
+        {{if $value.id>0}}
+            <li class="class" data-val="{{$value.id}}"><a href="javascript:void(0)">{{$value.name}}</a></li>
+        {{/if}}
+    {{/each}}
+    <!--<li class="class" data-val="0"><a href="javascript:void(0)">其他</a></li>-->
+</script>
+
+<!-- 列表商品模版 -->
+<script id="tpl-product" type="text/html">
+    {{each $data}}
+	<li onclick="getDetail({{$value.id}})">
+		<a href="javascript:void(0);">
+			<img class="product_pic" data-src="{{$value.goods_img}}" src="img/pic.png" />
+			<dl class="product_info">
+				<dt><img src="img/icon_{{$value.platform}}.png" />{{$value.goods_title}}</dt>
+				<dd class="price">
+					<!--<span class="left">￥{{$value.goods_price}}</span>-->
+					<!--<span class="right">月销{{$value.goods_month_sells}}笔</span>-->
+					<span class="price_l">￥{{$value.goods_price}}</span>
+					<span class="price_l">月销{{$value.goods_month_sells}}笔</span>
+					<span class="price_b">{{$value.goods_rate}}%</span>
+				</dd>
+				<dd class="count">
+					<span class="left">用券省{{$value.coupon_value}}元</span>
+					<span class="right">￥<b>{{($value.goods_price*1000 - $value.coupon_value*1000)/1000}}</b></span>
+				</dd>
+			</dl>
+		</a>
+	</li>
+    {{/each}}
+</script>
+
+
+<!-- 详情页 -->
+<div class="detailsPage" id="detailsPage" style="display:none;">
+	<div class="detailsBox" id="detailsBox">
+        <div class="loading" id="loading" style="display:none"><img src="img/loading-1.gif" height="24" width="24"></div>
+        
+    </div>
+    <div class="detailsBack" onclick="window.history.go(-1);"><i class="linear">&#xe62e;</i></div>
+	<!-- <div class="shop"><span class="btn" id="opendetails">商品详情 (点击展开)</span><img id="detailsloading" style="display:none" src="img/loading-1.gif" height="12" width="12"></img></div>
+    <div id="imagesBox"></div> -->
+    <footer class="detailsFooter">
+    	<div class="left">
+            <a class="btn" href="index.html"><i class="linear">&#xe604;</i><span>首页</span></a>
+            <a class="btn follow showEwmMask" href="javascript:void(0);"><i class="linear">&#xe603;</i><span>关注我们</span></a>
+        </div>
+        <div class="right">
+            <a class="btn browser">浏览器打开</a>
+            <span class="btn coupon" id="getCoupon">领优惠券</span>
+        </div>
+    </footer>
+
+    <div class="maskBox" id="taoToken" style="display:none;"></div>
+    <div class="ewmMask" id="ewmMask" style="display:none;">
+        <div class="closeMask"></div>
+        <img src="img/erweima_dyh.jpg" />
+    </div>
+</div>
+<!-- 详情页模版 -->
+<script id="tpl-details" type="text/html">
+    <input type="hidden" id="token_goods_id" value="{{$data}}" />
+    <div class="details_pic">
+        <img src="{{$data.goods_img}}" />
+    </div>
+    <div class="title">
+        <div class="text"><img src="img/icon_{{$data.platform}}.png">{{$data.goods_title}}</div>
+        <!--<div class="btn"><i class="linear">&#xe629;</i><span>发布</span></div>-->
+    </div>
+    <div class="price">
+        <div class="left"><span class="red">券后价<b>￥{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}</b></span><span class="delete">原价{{$data.goods_price}}</span></div>
+        <div class="right">月销 {{$data.goods_month_sells}} 笔</div>
+    </div>
+    <ul class="count">
+        <li class="li1">优惠券: <span class="red">￥{{$data.coupon_value}}</span></li>
+        <li class="li2">数量: <span class="red">{{$data.coupon_count}}张</span></li>
+        <li class="li3">结束: <span class="red">{{$data.coupon_end_time}}</span></li>
+    </ul>
+	<div class="det_list det_list2">
+		<span>佣金比例：<b>{{$data.goods_rate}}%</b></span>
+		<span>会员约赚：<b>￥{{((($data.goods_price*1000 - $data.coupon_value*1000)/1000)*($data.goods_rate/100)*0.7).toFixed(2)}}</b></span>
+	</div>
+    <!--<div class="shop">店铺：{{$data.shop_name}}</div>-->
+</script>
+
+<!-- 口令模版 -->
+<script id="tpl-token" type="text/html">
+<textarea id="clipboardText">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+</textarea>
+    <div class="maskCon">
+        <div class="pic">
+            <img src="{{$data.goods_img}}" />
+        </div>
+        <!--<ul class="tokeBox">
+            <li>【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}</li>
+            <li>【商品】{{$data.goods_title}}</li>
+            <li>【原价】{{$data.goods_price}}元</li>
+            <li>【优惠券】{{$data.coupon_value}}元</li>
+            <li>【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元</li>
+        </ul>-->
+		<textarea class="tokeBox" style="width:100%" rows="10">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+		</textarea>
+		<div class="tokeBox" id="tkl" style="display: block; text-align: left;">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}<br/>
+【商品】{{$data.goods_title}}<br/>
+【原价】{{$data.goods_price}}元<br/>
+【优惠券】{{$data.coupon_value}}元<br/>
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元<br/>
+		</div>
+		<div>
+            <span>部分iphone6/6s手机无法复制淘口令，请将系统升级到最新版本:10.3.2，或长按全选复制上方淘口令。</span>
+        </div>
+        <div class="title">
+            <span class="left">1、复制淘口令</span>
+            <span class="right">2、打开手机淘宝</span>
+        </div>
+        <button class="button copy" id="copyBtn" data-clipboard-target="#clipboardText">一键复制淘口令</button>
+        <div class="button success" id="successBtn" style="display:none;">淘口令复制成功,请打开手机淘宝,即可领券购买</div>
+    </div>
+</script>
+
+<!-- 图片模版 -->
+<script id="tpl-images" type="text/html">
+    <div class="imagessCon">
+        {{each $data}}
+            <img src="{{$value}}" />
+        {{/each}}
+    </div>
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jsonp.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/dropload.min.js"></script>
+<script type="text/javascript" src="js/clipboard.min.js"></script>
+<script type="text/javascript" src="js/member.js"></script>
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/libs.js?v=555"></script>
+<script type="text/javascript" src="js/weixin.js?v=555"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+	var curClass = getUrlParam('class');
+    var searchVal = getUrlParam('search');
+    var MORE = true;
+    if (curClass==null) {
+        curClass = -1;
+    };
+    if (searchVal!=null) {
+        $('#pageType').val('search');
+        $('#searchVal').val(searchVal);
+        $('#searchTxt').text(searchVal);
+        $('#searchTxt').parent().attr('href','search.html?search='+searchVal);
+        $('#close_search').show();
+    }else{
+        $('#close_search').hide();
+    };
+    $('#goods_class').val(curClass);
+
+    // 清楚删除
+    $('#close_search').click(function(event) {
+        $('#searchTxt').text('搜索商品');
+        if ($('#max_price').val()=='') {
+            $('#pageType').val('default');
+        }else{
+            $('#pageType').val('price');
+        };
+        $('#searchVal').val('');
+        $('#close_search').hide();
+		$('#searchTxt').parent().attr('href','search.html?search=');
+        $('#curPage').val(1);
+        getProduct(true,function(){
+            var page = parseInt($('#curPage').val())+1;
+            $('#curPage').val(page);
+        },function(){
+            // me.resetload();
+        },function(msg){
+            $('#loading').hide();
+            $('#more').hide();
+            $('#errorTxt').html(msg);
+            // me.noData(true);
+        })
+    });
+
+    // 清除价格区间
+    $('#clearPrice').click(function(event) {
+        $('#min_price').val('');
+        $('#max_price').val('');
+        $('#priceBox input').val('');
+        if ($('#pageType').val()!='search') {
+            $('#pageType').val('default');
+        };
+        $('#curPage').val(1);
+        getProduct(true,function(){
+            var page = parseInt($('#curPage').val())+1;
+            $('#curPage').val(page);
+        },function(){
+            // me.resetload();
+        },function(msg){
+            $('#loading').hide();
+            $('#more').hide();
+            $('#errorTxt').html(msg);
+            // me.noData(true);
+        })
+        $('body').removeAttr('class');
+    });
+
+    // 点击筛选
+    $('#jsClick li').click(function(event) {
+    	$('body').removeAttr('class');
+    	var className = $(this).attr('data-nav');
+    	$('body').addClass(className);
+    });
+    $('.module_fixed').click(function(event) {
+    	event.stopPropagation();
+    	$('body').removeAttr('class');
+    });
+    $('.module_fixed .module').click(function(event) {
+    	event.stopPropagation();
+    })
+
+    // 默认加载数据
+    getProduct(false,function(){
+    	if (MORE) {
+        	$('#loading').hide();
+    		$('#more').show();
+    	}else{
+    		$('#loading').hide();
+    		$('#more').hide();
+    	};
+    	var page = parseInt($('#curPage').val())+1;
+		$('#curPage').val(page);
+    },function(){
+		// me.resetload();
+	},function(msg){
+		$('#loading').hide();
+		$('#more').hide();
+		$('#errorTxt').html(msg);
+		// me.noData(true);
+	});
+
+    // 分类选择
+    $('#classContent').delegate('.class', 'click', function(event) {
+        var id = $(this).attr('data-val');
+        var text = $(this).children('a').text();
+        $('#classContent .class a').removeClass('active');
+        $(this).children('a').addClass('active');
+        $('#goods_class').val(id);
+        $('#curPage').val(1);
+        $('.module_container .class span').text(text);
+        getProduct(true,function(){
+            var page = parseInt($('#curPage').val())+1;
+            $('#curPage').val(page);
+        },function(){
+            // me.resetload();
+        },function(msg){
+            $('#loading').hide();
+            $('#more').hide();
+            $('#errorTxt').html(msg);
+            // me.noData(true);
+        })
+        $('body').removeAttr('class');
+    });
+
+
+    // 排序
+    $('.module_fixed .module_ul li').click(function(event) {
+    	event.stopPropagation();
+        if (!$(this).hasClass('active')) {
+            var type = $(this).attr('data-type');
+            var val = $(this).attr('data-val');
+            if (type.indexOf(',')>-1) {
+                var typeArr = type.split(',');
+                if (val.indexOf(',')>-1) {
+                    // 排序-价格排序
+                    var priceArr = val.split(',');
+                    for (var i = 0; i < typeArr.length; i++) {
+                        $('#'+typeArr[i]).val(priceArr[i]);
+                    };
+                }else{
+                    for (var i = 0; i < typeArr.length; i++) {
+                        $('#'+typeArr[i]).val('');
+                    };
+                };
+            }else{
+                $('#'+type).val(val);
+            };
+            $(this).parent().children('li').removeClass('active');
+            $(this).addClass('active');
+            // 去掉遮罩
+            var parClass = $(this).parent().attr('id');
+            var text = $(this).find('span').text();
+            $('.module_container .'+ parClass +' span').text(text);
+            $('body').removeAttr('class');
+        };
+        // console.log($('#hiddenForm').serialize());
+        $('#curPage').val(1);
+        getProduct(true,function(){
+        	var page = parseInt($('#curPage').val())+1;
+			$('#curPage').val(page);
+        },function(){
+            // me.resetload();
+        },function(msg){
+            $('#loading').hide();
+            $('#more').hide();
+            $('#errorTxt').html(msg);
+            // me.noData(true);
+        });
+    });
+
+    // 价格区间
+    $('#goPrice').click(function(){
+        var min = $('#minPrice').val();
+        var max = $('#maxPrice').val();
+        if (isNaN(min)||isNaN(max)) {
+            alert('必须输入数字')
+        }else{
+            $('#min_price').val(min);
+            $('#max_price').val(max);
+            if ($('#pageType').val()!='search') {
+                $('#pageType').val('price');
+            };
+            $('body').removeAttr('class');
+            $('#curPage').val(1);
+            getProduct(true,function(){
+	        	var page = parseInt($('#curPage').val())+1;
+				$('#curPage').val(page);
+	        },function(){
+                // me.resetload();
+            },function(msg){
+                $('#loading').hide();
+                $('#more').hide();
+                $('#errorTxt').html(msg);
+                // me.noData(true);
+            });
+        };
+    });
+
+    // 加载更多
+    // $('#more').click(function(event) {
+    // 	var page = parseInt($('#curPage').val())+1;
+    //     $('#curPage').val(page);
+    //     $('#loading').show();
+    // 	$('#more').hide();
+    //     getProduct(false,function(){
+    //     	if (MORE) {
+	   //      	$('#loading').hide();
+	   //  		$('#more').show();
+    //     	}else{
+    //     		$('#loading').hide();
+	   //  		$('#more').hide();
+    //     	};
+    //     });
+    // });
+
+	// 上拉加载
+	// $('.ListBox').dropload({
+	//     scrollArea: window,
+	//     autoLoad: true,
+	//     // threshold: 9/10,
+	//     domDown: {
+	// 		domClass : 'dropload-down',
+	// 		domRefresh : '<div class="dropload-refresh more" id="more">上拉加载更多</div>',
+	// 		domLoad : '<div class="dropload-load loading" id="loading"><img src="img/loading-1.gif" height="24" width="24"></div>',
+	// 		domNoData : '<div class="dropload-noData more" id="errorTxt"></div>'
+	// 	},
+	//     loadDownFn: function(me){
+	//     	getProduct(false,function(){
+	//     		var page = parseInt($('#curPage').val())+1;
+ //        		$('#curPage').val(page);
+	//     		me.resetload();
+	//     	},function(){
+	//     		me.resetload();
+	//     	},function(msg){
+	//     		me.noData(true);
+	//     		setTimeout(function(){
+	//     			$('#errorTxt').html(msg);
+	//     		},500)
+	//     	})
+	    	
+	//     }
+	// });
+
+	// 滚动加载更多
+	var stop = true;
+	$(window).scroll(function(){ 
+	    var totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+	    if($(document).height() <= totalheight&&$('#currentPage').css('display')!='none'){ 
+	        if(stop==true){ 
+	            stop=false;
+	            $('#loading').show();
+    			$('#more').hide();
+	            getProduct(false,function(){
+	        		$('#loading').hide();
+    				$('#more').show();
+	        		stop = true; 
+		    		// me.resetload();
+			    	var page = parseInt($('#curPage').val())+1;
+	        		$('#curPage').val(page);
+		    	},function(){
+		    		// me.resetload();
+		    	},function(msg){
+		    		$('#loading').hide();
+    				$('#more').hide();
+    				$('#errorTxt').html(msg);
+		    		// me.noData(true);
+		    	})
+	        } 
+	    } 
+	});
+
+	// 获取分类列表
+    $.ajax({
+        url: 'http://www.lsg001.com/mng/goods!getClazz.action',
+        contentType: "application/json; charset=utf-8",
+        type: 'post',
+        datatype: "json",
+        data: '',
+        success: function(msg){
+            if (msg.status==1) {
+                var data = msg.data;
+                var classObj = {
+                	'key-1':'全部'
+                };
+                for (var i = 0; i < data.length; i++) {
+            		classObj['key'+data[i].id] = data[i].name;
+                };
+                var html = template('tpl-class', data);
+                $('#classContent').html(html);
+                $('#classContent a').removeClass('active');
+                if (curClass==0) {
+                    $('#classContent a').eq(-1).addClass('active');
+                }else if(curClass==-1){
+                    $('#classContent a').eq(0).addClass('active');
+                }else{
+                    $('#classContent a').eq(curClass).addClass('active');
+                };
+                $('.module_container .class span').text(classObj['key'+curClass]);
+            }else{
+                layer.alert(msg.msg);
+            };
+        }
+    });
+
+	
+	// 获取数据
+    function getProduct(ifRemove,callback,error,nodata){
+        if ($('#pageType').val()=='default') {
+           	var data = {
+                "goods_class": $('#goods_class').val(),     // 分类id
+                "platform": $('#platform').val(),           // 平台选项 0为淘宝、1为天猫【非必填】默认全部平台
+                "curPage": $('#curPage').val(),             // 当前页码【必填】
+                "pageSize": $('#pageSize').val(),           // 每页条数【非必填】默认十条
+                "sortName": $('#sortName').val(),           // 排序名 goods_price价格，goods_month_sells 月销量【非必填】默认综合排序
+                "orderBy": $('#orderBy').val()              // 1 升序 2 降序【非必填】默认综合排序
+            }
+            var url = 'http://www.lsg001.com/mng/goods!getGoodsByClazz.action';
+            var dataNull = '没有了';
+        }else if($('#pageType').val()=='search'){
+            var data = {
+                "goods_class": $('#goods_class').val(),     // 分类id
+                "name": $('#searchVal').val(),         		// 搜索的商品关键字【非必填】查询所有商品
+                "min_price": $('#min_price').val(),         // 最低价格
+                "max_price": $('#max_price').val(),         // 最高价格
+                "platform": $('#platform').val(),           // 平台选项 0为淘宝、1为天猫【非必填】默认全部平台
+                "curPage": $('#curPage').val(),             // 当前页码【必填】
+                "pageSize": $('#pageSize').val(),           // 每页条数【非必填】默认十条
+                "sortName": $('#sortName').val(),           // 排序名 goods_price价格，goods_month_sells 月销量【非必填】默认综合排序
+                "orderBy": $('#orderBy').val()              // 1 升序 2 降序【非必填】默认综合排序
+            }
+            var url = 'http://www.lsg001.com/mng/goods!searchGoods.action';
+            var dataNull = '没有更多与 <b style="color:red;">'+$('#searchVal').val()+'</b> 相关的数据了';
+        }else if ($('#pageType').val()=='price') {
+            var data = {
+                "min_price": $('#min_price').val(),         // 最低价格
+                "max_price": $('#max_price').val(),         // 最高价格
+                "goods_class": $('#goods_class').val(),     // 分类 可选
+                "platform": $('#platform').val(),           // 平台选项 0为淘宝、1为天猫【非必填】默认全部平台
+                "curPage": $('#curPage').val(),             // 当前页码【必填】
+                "pageSize": $('#pageSize').val(),           // 每页条数【非必填】默认十条
+                "sortName": $('#sortName').val(),           // 排序名 goods_price价格，goods_month_sells 月销量【非必填】默认综合排序
+                "orderBy": $('#orderBy').val()              // 1 升序 2 降序【非必填】默认综合排序
+            }
+            var url = 'http://www.lsg001.com/mng/goods!getGoodsWithPrice.action';
+            var dataNull = '暂无与 <b style="color:red;">￥'+$('#min_price').val()+'到￥'+$('#max_price').val()+'</b> 相关的数据';
+        };
+        
+        var ajaxData = {};
+        for(var key in data){
+            if ($.trim(data[key])!='') {
+               ajaxData[key] =  data[key];
+            };
+        }
+        if (ifRemove) {
+        	var layerIndex = layer.load(1, {
+				shade: [0.5,'#fff'] //0.5透明度的白色背景
+			});
+			$(window).scrollTop(0);
+			MORE = true;
+        };
+        if (MORE) {
+        	$.ajax({
+	            url: url,
+	            contentType: "application/json; charset=utf-8",
+	            type: 'post',
+	            datatype: "json",
+	            data:JSON.stringify(ajaxData),
+	            success: function(msg){
+	            	layer.close(layerIndex)
+	                if (msg.status==1) {
+	                	if (ifRemove) {
+	                		$('#listCon').html('');
+	                	};
+	                    var data = msg.data.list;
+	                    if (data.length>0) {
+	                    	if (data.length < $('#pageSize').val()) {
+	                    		MORE = false;
+	                    	}else{
+	                    		MORE = true;
+	                    	};
+                            var html = template('tpl-product', data);
+                            $('#listCon').append(html)
+							$('.list_con li img').each(function(){
+								var imgSrc = $(this).attr('data-src');
+								$(this).attr('src',imgSrc);
+							})
+		                    if (!!callback) {
+		                        callback();
+		                    };
+	                    }else{
+	                    	// 没有数据
+	                    	console.log('没有数据')
+	                    	if (!!nodata) {
+		                        nodata(dataNull);
+		                    };
+	                    }
+	                }else{
+	                    layer.alert(msg.msg,{icon:2});
+	                    if (!!error) {
+	                        error();
+	                    };
+	                };
+	            },
+	            error:function(){
+	            	if (!!error) {
+                        error();
+                    };
+	            }
+	        });
+		}else{
+			console.log('没有了');
+			$('#loading').hide();
+			if (!!nodata) {
+                nodata(dataNull);
+            };
+		};
+        
+    }
+
+	
+    
+</script>
+</body>
+</html>

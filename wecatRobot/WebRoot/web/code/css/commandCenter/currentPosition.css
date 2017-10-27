@@ -1,0 +1,127 @@
+.contentArea {
+  padding-top: 12px;
+  color: #333;
+  font-size: 16px;
+}
+.contentArea > .contentTitle {
+  padding-left: 26px;
+  background-color: #fff;
+  line-height: 60px;
+}
+.contentArea > .contentTitle .lineBlue {
+  height: 23px;
+  width: 3px;
+  background-color: #1c9bd9;
+  display: inline-block;
+  vertical-align: middle;
+}
+.contentArea > .mapContent {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background-color: #fff;
+  padding-top: 0;
+  min-height: 800px;
+}
+.contentArea > .mapContent > #allmap {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  margin: 0;
+  font-family: "΢���ź�";
+}
+#outManList > div {
+  background-color: #B32727;
+  color: #fff;
+  font-size: 14px;
+  line-height: 34px;
+  cursor: pointer;
+}
+#outManList > div > img {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+#outManList > ul li {
+  border-bottom: 1px solid #ccc;
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 30px;
+}
+.statuShow {
+  width: 260px;
+  height: 34px;
+  line-height: 34px;
+  background-color: #fff;
+  font-size: 14px;
+}
+.statuShow .jingYinIcon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url("../../images/icon_mute.png") no-repeat center;
+  margin-left: 10px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.statuShow .gpsIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  display: inline-block;
+  background: url("../../images/icon_gps.png") no-repeat center;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+#searchManList {
+  height: 36px;
+}
+#searchManList .ManLis {
+  display: inline-block;
+  height: 100%;
+  width: 0;
+  position: relative;
+  background-color: #fff;
+  vertical-align: middle;
+}
+#searchManList .ManLis input {
+  width: 100%;
+  height: 100%;
+  text-indent: 1em;
+}
+#searchManList .ManLis ul {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+#searchManList .ManLis ul > li {
+  background-color: #fff;
+  padding-left: 20px;
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  line-height: 34px;
+  cursor: pointer;
+}
+#searchManList .ManLis ul > li:first-child {
+  background-color: #F3F3F3;
+  color: #0097E3;
+  line-height: 40px;
+}
+#searchManList .ManLis ul > li:first-child span {
+  float: right;
+  width: 17px;
+  height: 17px;
+  background: url("../../images/icon_cancel_add_event.png") no-repeat center;
+  margin-top: 10px;
+  margin-right: 6px;
+}
+#searchManList .searchIcon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  background: url("../../images/icon_search_tasks.png") no-repeat center;
+  background-color: #0097E3;
+}

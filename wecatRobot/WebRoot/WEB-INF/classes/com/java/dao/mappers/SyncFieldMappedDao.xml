@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.dao.SyncFieldMappedDao">
+
+	<sql id="tableColumns">
+			a.id AS "id",
+		a.field_id AS "fieldId",
+		a.field_name AS "fieldName",
+		a.field_type AS "fieldType",
+		a.field_type_name AS "fieldTypeName",
+		a.mapped_value AS "mappedValue",
+		a.custom_type AS "customType",
+		a.create_time AS "createTime",
+		a.update_time AS "updateTime"
+	</sql>
+	
+	<sql id="fromTable">
+		`sync_field_mapped` a 
+	</sql>
+	
+	<select id="get" resultType="SyncFieldMapped">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_field_mapped` a 
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getBy" resultType="SyncFieldMapped">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_field_mapped` a 
+		WHERE a.${column} = #{value}
+	</select>
+	
+	<select id="fromTable" resultType="SyncFieldMapped">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_field_mapped` a ${sql }
+	</select>
+	
+	<select id="findListSQL" resultType="java.util.HashMap">
+		${sql }
+	</select>
+	
+    <select id="findList" resultType="SyncFieldMapped">
+        SELECT 
+	        <include refid="tableColumns"/>
+        FROM 
+        	<include refid="fromTable"/>
+        <where>
+        	<include refid="whereSQL"/>
+        </where>
+        <choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date DESC
+			</otherwise>
+		</choose>
+        <if test="first != null and max != null">
+			LIMIT #{first},#{max}
+		</if>
+    </select>
+    
+    <sql id="whereSQL">
+		<if test="fieldId != null and fieldId != ''">
+    		AND a.field_id = #{fieldId}
+    	</if>
+		<if test="fieldName != null and fieldName != ''">
+    		AND a.field_name = #{fieldName}
+    	</if>
+		<if test="fieldType != null and fieldType != ''">
+    		AND a.field_type = #{fieldType}
+    	</if>
+		<if test="fieldTypeName != null and fieldTypeName != ''">
+    		AND a.field_type_name = #{fieldTypeName}
+    	</if>
+		<if test="mappedValue != null and mappedValue != ''">
+    		AND a.mapped_value = #{mappedValue}
+    	</if>
+		<if test="customType != null and customType != ''">
+    		AND a.custom_type = #{customType}
+    	</if>
+		<if test="createTime != null and createTime != ''">
+    		AND a.create_time = #{createTime}
+    	</if>
+		<if test="updateTime != null and updateTime != ''">
+    		AND a.update_time = #{updateTime}
+    	</if>
+	    <if test="createDateStart != null and createDateStart != '' and createDateEnd != null and createDateEnd != ''">
+    		AND a.create_date BETWEEN #{createDateStart} AND #{createDateEnd}
+    	</if>
+    	<if test="updateDateStart != null and updateDateStart != '' and updateDateEnd != null and updateDateEnd != ''">
+    		AND a.update_date BETWEEN #{updateDateStart} AND #{updateDateEnd}
+    	</if>
+    </sql>
+    
+    <insert id="insert">
+		INSERT INTO sync_field_mapped(
+		            	id,
+        	field_id,
+        	field_name,
+        	field_type,
+        	field_type_name,
+        	mapped_value,
+        	custom_type,
+        	create_time,
+        	update_time
+		) VALUES (
+		            	#{id},
+        	#{fieldId},
+        	#{fieldName},
+        	#{fieldType},
+        	#{fieldTypeName},
+        	#{mappedValue},
+        	#{customType},
+        	#{createTime},
+        	#{updateTime}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sync_field_mapped SET 	
+		    			field_id = #{fieldId},
+			field_name = #{fieldName},
+			field_type = #{fieldType},
+			field_type_name = #{fieldTypeName},
+			mapped_value = #{mappedValue},
+			custom_type = #{customType},
+			create_time = #{createTime},
+			update_time = #{updateTime}
+		WHERE id = #{id}
+	</update>
+ 	
+ 	<update id="delete">
+		DELETE FROM sync_field_mapped
+		WHERE id = #{id}
+	</update>
+	
+	<select id="getCount" resultType="Integer">
+		SELECT 
+			count(1) 
+		FROM 
+			<include refid="fromTable"/>
+		<where>
+			<include refid="whereSQL"/>
+		</where>
+	</select>
+    <select id="getAll" resultType="SyncFieldMapped">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			<include refid="fromTable"/>
+	</select>
+</mapper>

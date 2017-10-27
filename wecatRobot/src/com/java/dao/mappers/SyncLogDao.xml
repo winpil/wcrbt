@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.dao.SyncLogDao">
+
+	<sql id="tableColumns">
+			a.id AS "id",
+		a.create_date AS "createDate",
+		a.code AS "code",
+		a.receive AS "receive",
+		a.requestData AS "requestData",
+		a.result AS "result"
+	</sql>
+	
+	<sql id="fromTable">
+		`sync_log` a 
+	</sql>
+	
+	<select id="get" resultType="SyncLog">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_log` a 
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getBy" resultType="SyncLog">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_log` a 
+		WHERE a.${column} = #{value}
+	</select>
+	
+	<select id="fromTable" resultType="SyncLog">
+		SELECT 
+			<include refid="tableColumns"/>
+		FROM 
+			`sync_log` a ${sql }
+	</select>
+	
+	<select id="findListSQL" resultType="java.util.HashMap">
+		${sql }
+	</select>
+	
+    <select id="findList" resultType="SyncLog">
+        SELECT 
+	        <include refid="tableColumns"/>
+        FROM 
+        	<include refid="fromTable"/>
+        <where>
+        	<include refid="whereSQL"/>
+        </where>
+        <choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.create_date DESC
+			</otherwise>
+		</choose>
+        <if test="first != null and max != null">
+			LIMIT #{first},#{max}
+		</if>
+    </select>
+    
+    <sql id="whereSQL">
+		<if test="createDate != null and createDate != ''">
+    		AND a.create_date = #{createDate}
+    	</if>
+		<if test="code != null and code != ''">
+    		AND a.code = #{code}
+    	</if>
+		<if test="receive != null and receive != ''">
+    		AND a.receive = #{receive}
+    	</if>
+		<if test="requestData != null and requestData != ''">
+    		AND a.requestData = #{requestData}
+    	</if>
+		<if test="result != null and result != ''">
+    		AND a.result = #{result}
+    	</if>
+	    <if test="createDateStart != null and createDateStart != '' and createDateEnd != null and createDateEnd != ''">
+    		AND a.create_date BETWEEN #{createDateStart} AND #{createDateEnd}
+    	</if>
+    	<if test="updateDateStart != null and updateDateStart != '' and updateDateEnd != null and updateDateEnd != ''">
+    		AND a.update_date BETWEEN #{updateDateStart} AND #{updateDateEnd}
+    	</if>
+    </sql>
+    
+    <insert id="insert">
+		INSERT INTO sync_log(
+		            	id,
+        	create_date,
+        	code,
+        	receive,
+        	requestData,
+        	result
+		) VALUES (
+		            	#{id},
+        	#{createDate},
+        	#{code},
+        	#{receive},
+        	#{requestData},
+        	#{result}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sync_log SET 	
+		    			create_date = #{createDate},
+			code = #{code},
+			receive = #{receive},
+			requestData = #{requestData},
+			result = #{result}
+		WHERE id = #{id}
+	</update>
+ 	
+ 	<update id="delete">
+		DELETE FROM sync_log
+		WHERE id = #{id}
+	</update>
+	
+	<select id="getCount" resultType="Integer">
+		SELECT 
+			count(1) 
+		FROM 
+			<include refid="fromTable"/>
+		<where>
+			<include refid="whereSQL"/>
+		</where>
+	</select>
+    
+</mapper>

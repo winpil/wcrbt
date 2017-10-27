@@ -1,0 +1,137 @@
+.contentArea{
+  padding-top: 12px;
+  color: #333;
+  font-size: 16px;
+  >.contentTitle{
+    padding-left: 26px;
+    background-color: #fff;
+    line-height: 60px;
+    .lineBlue{
+      height: 23px;
+      width: 3px;
+      background-color: #1c9bd9;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  >.mapContent{
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background-color: #fff;
+    padding-top: 0;
+    min-height: 800px;
+    > #allmap {
+      width: 100%;height: 800px;overflow: hidden;margin:0;font-family:"Î¢ÈíÑÅºÚ";
+    }
+  }
+}
+
+//µØÍ¼
+
+#statuShow{
+  width: 200px;
+  height: 34px;
+  line-height: 34px;
+  background-color: #fff;
+  font-size: 14px;
+  .startIcon{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url("../../images/icon_start.png") no-repeat center;
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .endIcon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    background: url("../../images/icon_end.png") no-repeat center;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+}
+
+#imgMsg{
+  width: 200px;
+  >div{
+    line-height: 50px;
+    span{
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      background-color: #0097E3;
+      color: #fff;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 20px;
+    }
+  }
+  >ul{
+    border-top: 1px dashed #ccc;
+    li{
+      line-height: 30px;
+      font-size: 13px;
+    }
+  }
+}
+#searchManList{
+  height: 36px;
+  .ManLis{
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    position: relative;
+    background-color: #fff;
+    vertical-align: middle;
+    input{
+      width: 100%;
+      height: 100%;
+      text-indent: 1em;
+    }
+    ul{
+      position: absolute;
+      top: 35px;
+      left: 0;
+      width: 100%;
+      display: none;
+      >li{
+        background-color: #fff;
+        padding-left: 20px;
+        width: 100%;
+        font-size: 14px;
+        color: #666;
+        line-height: 34px;
+        cursor: pointer;
+      }
+      >li:first-child{
+        background-color: #F3F3F3;
+        color:#0097E3;
+        line-height: 40px;
+        span{
+          float: right;
+          width: 17px;
+          height: 17px;
+          background: url("../../images/icon_cancel_add_event.png") no-repeat center;
+          margin-top: 10px;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+  .searchIcon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    background: url("../../images/icon_search_tasks.png") no-repeat center;
+    background-color: #0097E3;
+  }
+
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/companyMsg.css"/>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content inspectionTeamPage" id="content">
+    <!--对话框-查看-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    巡查组信息
+                    <span @click.stop="maskShow=false"></span>
+                </div>
+                <div class="modelContent">
+                    <p><span>巡查组名称：</span>第一巡查组</p>
+                    <p><span>负责人：</span>冯某某</p>
+                    <p><span>所属成员：</span>冯某某、冯某某、冯某某</p>
+                    <p><span>网络名称：</span>某某社区、某某社区、某某社区、某某社区</p>
+                    <p><span>巡查组职责：</span>某某社区、某某社区、某某社区、某某社区、某某社区、某某社区、某某社区、某某社区</p>
+                    <p><span>备注：</span>暂无</p>
+                </div>
+            </div>
+        </div>
+    </transition>
+    <!--对话框-编辑-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow2"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    巡查组信息编辑
+                    <span @click.stop="maskShow2=false"></span>
+                </div>
+                <el-form ref="form" :model="form" label-width="80px">
+                    <el-form-item label="活动名称">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="负责人" prop="type">
+                        <el-checkbox-group v-model="form.type">
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="所属成员" prop="type">
+                        <el-checkbox-group v-model="form.type">
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <p><span>网络名称</span> 网格1、网格2、网格4</p>
+                    <el-form-item label="巡查组职责" prop="desc">
+                        <el-input type="textarea" v-model="form.desc"></el-input>
+                    </el-form-item>
+                    <el-form-item label="备注">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">保存</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+    </transition>
+    <!--对话框-新增-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow3"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    新增巡查组
+                    <span @click.stop="maskShow3=false"></span>
+                </div>
+                <el-form ref="form" :model="form" label-width="80px">
+                    <el-form-item label="活动名称">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="负责人" prop="type">
+                        <el-checkbox-group v-model="form.type">
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="所属成员" prop="type">
+                        <el-checkbox-group v-model="form.type">
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                            <el-checkbox label="某某某" name="type"></el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <p><span>网络名称</span> 网格1、网格2、网格4</p>
+                    <el-form-item label="巡查组职责" prop="desc">
+                        <el-input type="textarea" v-model="form.desc"></el-input>
+                    </el-form-item>
+                    <el-form-item label="备注">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">保存</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+    </transition>
+    <div class="container-fluid w">
+        <div class="pageNav">
+            基础数据 > 巡查组管理
+        </div>
+
+        <div class="contentArea inspectionTeam">
+            <div class="inquiry">
+                <div>
+                    <span class="pa"></span>
+                    <input type="text" placeholder="请输入巡查组名称"/>
+                    <button class="inquiryBtnCom">查询</button>
+                </div>
+
+            </div>
+            <div>
+                <div class="addBtnBox">
+                    <button class="iconBtn addBtn" @click.stop="add()"><span></span>新增</button>
+                </div>
+                <div class="inspectionTeamList">
+                    <div class="companyListBox">
+                        <table class="companyList">
+                            <tr>
+                                <th>序号</th>
+                                <th >巡查组名称</th>
+                                <th>负责人</th>
+                                <th>所属成员</th>
+                                <th >网络名称</th>
+                                <th >操作</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>第一巡查组</td>
+                                <td>某某某</td>
+                                <td>某某某、某某某、某某某</td>
+                                <td>某某社区、某某社区、某某社区、某某社区</td>
+                                <td class="look"><span class="lookIcon"></span><a href="javascript:void(0)" @click.stop="look()">查看</a><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>第一巡查组</td>
+                                <td>某某某</td>
+                                <td>某某某、某某某、某某某</td>
+                                <td>某某社区、某某社区、某某社区、某某社区</td>
+                                <td class="look"><span class="lookIcon"></span><a @click.stop="look()">查看</a><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#content",
+
+        data:{
+            maskShow:false,
+            maskShow2: false,
+            maskShow3: false,
+            form:{
+                name:"jjj",
+                type:"",
+                desc:"我是职责"
+            }
+        },
+        methods:{
+            onSubmit:function(){
+                console.log(123)
+            },
+
+            look:function(){
+                this.maskShow = true
+            },
+            edit:function(){
+                this.maskShow2 = true
+            },
+            add:function(){
+                this.maskShow3 = true
+            }
+
+        }
+    });
+    console.log(vm)
+
+</script>
+</html>
+
+
+
+
+

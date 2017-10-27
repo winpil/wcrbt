@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="wap-font-scale" content="no" />
+<meta name="renderer" content="webkit" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="author" content="Your Name" />
+<title>恋上购优惠券</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="js/rem.js"></script>
+<link rel="stylesheet" href="css/public.css" />
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="currentPage" id="currentPage">
+    <header class="Header">
+    	<div class="ewm showEwmMask">
+    		<i class="glyphicon">&#xe039;</i>
+    		<span>关注我们</span>
+    	</div>
+	    <a class="search" href="search.html">
+	    	<i class="icons">&#xf1d9;</i>
+	    	<span>搜索商品</span>
+	    	<b></b>
+	    </a>
+    </header>
+    <div class="Banner swiper-container">
+    	<div class="swiper-wrapper" id="bannerBox"><div class="swiper-slide" style="background-image:url(img/banner/jiameng.png)"><a href="#"></a></div></div>
+    	<div class="swiper-pagination"></div>
+    </div>
+    <nav class="Nav">
+    	<ul id="navBox">
+<li><a href="list.html?class=1"><img src="img/nav/nav_1.png" /><span>女装</span></a></li>
+<li><a href="list.html?class=2"><img src="img/nav/nav_2.png" /><span>内衣</span></a></li>
+<li><a href="list.html?class=3"><img src="img/nav/nav_3.png" /><span>美妆</span></a></li>
+<li><a href="list.html?class=4"><img src="img/nav/nav_4.png" /><span>母婴</span></a></li>
+<li><a href="list.html?class=5"><img src="img/nav/nav_5.png" /><span>美食</span></a></li>
+<li><a href="list.html?class=6"><img src="img/nav/nav_6.png" /><span>居家</span></a></li>
+<li><a href="list.html?class=7"><img src="img/nav/nav_7.png" /><span>男装</span></a></li>
+<li><a href="list.html?class=8"><img src="img/nav/nav_8.png" /><span>户外</span></a></li>
+<li><a href="list.html?class=9"><img src="img/nav/nav_9.png" /><span>数码</span></a></li>
+<li><a href="list.html?class=10"><img src="img/nav/nav_10.png" /><span>箱包</span></a></li>
+</ul>
+    </nav>
+    <dl class="ListBox">
+    	<dt class="list_tit">最新优惠券（手快有，手慢无）</dt>
+    	<dd class="list_con">
+    		<ul id="listCon"></ul>
+    	</dd>
+    	<dd class="loading" id="loading"><img src="img/loading-1.gif" height="24" width="24"></dd>
+    	<dd class="more" id="more" style="display:none">上拉加载更多~</dd>
+    </dl>
+    <footer class="Footer">
+    	<ul>
+    		<li class="active"><a href="index.html"><i class="linear">&#xe600;</i><span>首页</span></a></li>
+    		<li><a href="jingpin.html"><i class="linear">&#xe62d;</i><span>精品9块9</span></a></li>
+    		<li><a href="baokuan.html"><i class="linear">&#xe60b;</i><span>爆款</span></a></li>
+    		<li><a href="join.html"><i class="linear">&#xe602;</i><span>加盟赚钱</span></a></li>
+    	</ul>
+    </footer>
+	<!-- <div class="ewmMask" id="ewmMask" style="display:none;">
+		<div class="closeMask"></div>
+		<img src="img/erweima_dyh.jpg" />
+	</div> -->
+</div>
+<!-- banner模版 -->
+<!--<script id="tpl-banner" type="text/html">
+	{{each $data}}
+		<div class="swiper-slide" style="background-image:url({{$value.imgUrl}})"><a href="{{$value.linkUrl}}"></a></div>
+	{{/each}}
+</script>-->
+
+
+
+<!-- 分类导航模版 -->
+<!--<script id="tpl-class" type="text/html">
+	{{each $data}}
+		{{if $value.id>0}}
+			<li><a href="list.html?class={{$value.id}}"><img src="img/nav/nav_{{$value.id}}.png" /><span>{{$value.name}}</span></a></li>
+		{{/if}}
+	{{/each}}
+</script>-->
+
+
+
+
+<!-- 列表商品模版 -->
+<script id="tpl-product—" type="text/html">
+	{{each $data}}
+	<li>
+		<a href="details.html?id={{$value.id}}">
+			<img class="product_pic" data-src="{{$value.goods_img}}" src="img/pic.png" />
+			<dl class="product_info">
+				<dt><img src="img/icon_{{$value.platform}}.png" />{{$value.goods_title}}</dt>
+				<dd class="price">
+					<span class="price_l">￥{{$value.goods_price}}</span>
+					<span class="price_l">月销{{$value.goods_month_sells}}笔</span>
+					<span class="price_b">{{$value.goods_rate}}%</span>
+				</dd>
+				<dd class="count">
+					<span class="left">用券省{{$value.coupon_value}}元</span>
+					<span class="right">￥<b>{{($value.goods_price*1000 - $value.coupon_value*1000)/1000}}</b></span>
+				</dd>
+			</dl>
+		</a>
+		<input type="hidden" name="productData" value="{{$data}}" />
+	</li>
+	{{/each}}
+</script>
+<!-- 列表商品模版 -->
+<script id="tpl-product" type="text/html">
+    {{each $data}}
+	<li onclick="getDetail({{$value.id}})">
+		<a href="javascript:void(0);">
+			<img class="product_pic" data-src="{{$value.goods_img}}" src="img/pic.png" />
+			<dl class="product_info">
+				<dt><img src="img/icon_{{$value.platform}}.png" />{{$value.goods_title}}</dt>
+				<dd class="price">
+					<span class="price_l">￥{{$value.goods_price}}</span>
+					<span class="price_l">月销{{$value.goods_month_sells}}笔</span>
+					<span class="price_b">{{$value.goods_rate}}%</span>
+				</dd>
+				<dd class="count">
+					<span class="left">用券省{{$value.coupon_value}}元</span>
+					<span class="right">￥<b>{{($value.goods_price*1000 - $value.coupon_value*1000)/1000}}</b></span>
+				</dd>
+			</dl>
+		</a>
+	</li>
+    {{/each}}
+</script>
+
+<!-- 详情页 -->
+<div class="detailsPage" id="detailsPage" style="display:none;">
+	<div class="detailsBox" id="detailsBox">
+        <div class="loading" id="loading" style="display:none"><img src="js/layer/skin/default/loading-1.gif" height="24" width="24"></div>
+        
+    </div>
+    <div class="detailsBack" onclick="window.history.go(-1);"><i class="linear">&#xe62e;</i></div>
+	<div class="shop"><span class="btn" id="opendetails">商品详情 (点击展开)</span> <img id="detailsloading" style="display:none" src="js/layer/skin/default/loading-1.gif" height="12" width="12"></img></div>
+    <div id="imagesBox"></div>
+    <footer class="detailsFooter">
+    	<div class="left">
+            <a class="btn" href="index.html"><i class="linear">&#xe604;</i><span>首页</span></a>
+            <a class="btn follow showEwmMask" href="javascript:void(0);"><i class="linear">&#xe603;</i><span>关注我们</span></a>
+        </div>
+        <div class="right">
+            <a class="btn browser">浏览器打开</a>
+            <span class="btn coupon" id="getCoupon">领优惠券</span>
+        </div>
+    </footer>
+
+    
+</div>
+<div class="maskBox" id="taoToken" style="display:none;"></div>
+<div class="ewmMask" id="ewmMask" style="display:none;">
+    <div class="closeMask"></div>
+    <img src="img/erweima_dyh.jpg" />
+</div>
+<!-- 详情页模版 -->
+<script id="tpl-details" type="text/html">
+    <input type="hidden" id="token_goods_id" value="{{$data}}" />
+    <div class="details_pic">
+        <img src="{{$data.goods_img}}" />
+    </div>
+    <div class="title">
+        <div class="text"><img src="img/icon_{{$data.platform}}.png">{{$data.goods_title}}</div>
+        <!--<div class="btn"><i class="linear">&#xe629;</i><span>分享</span></div>-->
+    </div>
+    <div class="price">
+        <div class="left"><span class="red">券后价<b>￥{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}</b></span><span class="delete">原价{{$data.goods_price}}</span></div>
+        <div class="right">月销 {{$data.goods_month_sells}} 笔</div>
+    </div>
+    <ul class="count">
+        <li class="li1">优惠券: <span class="red">￥{{$data.coupon_value}}</span></li>
+        <li class="li2">数量: <span class="red">{{$data.coupon_count}}张</span></li>
+        <li class="li3">结束: <span class="red">{{$data.coupon_end_time}}</span></li>
+    </ul>
+	<div class="det_list det_list2">
+		<span>佣金比例：<b>{{$data.goods_rate}}%</b></span>
+		<span>会员约赚：<b>￥{{((($data.goods_price*1000 - $data.coupon_value*1000)/1000)*($data.goods_rate/100)*0.7).toFixed(2)}}</b></span>
+	</div>
+    <!--<div class="shop">店铺：{{$data.shop_name}}</div>-->
+</script>
+
+<!-- 口令模版 -->
+<script id="tpl-token" type="text/html">
+<textarea id="clipboardText">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+</textarea>
+    <div class="maskCon">
+        <div class="pic">
+            <img src="{{$data.goods_img}}" />
+        </div>
+        <!--<ul class="tokeBox">
+            <li>【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}</li>
+            <li>【商品】{{$data.goods_title}}</li>
+            <li>【原价】{{$data.goods_price}}元</li>
+            <li>【优惠券】{{$data.coupon_value}}元</li>
+            <li>【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元</li>
+        </ul>-->
+		<textarea class="tokeBox" style="width:100%" rows="10">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+		</textarea>
+		<div class="tokeBox" id="tkl" style="display: block; text-align: left; -webkit-user-select: text!important;">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}<br/>
+【商品】{{$data.goods_title}}<br/>
+【原价】{{$data.goods_price}}元<br/>
+【优惠券】{{$data.coupon_value}}元<br/>
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元<br/>
+		</div>
+
+		<div>
+            <span>部分iphone6/6s手机无法复制淘口令，请将系统升级到最新版本:10.3.2，或长按全选复制上方淘口令。</span>
+        </div>
+        <div class="title">
+            <span class="left">1、复制淘口令</span>
+            <span class="right">2、打开手机淘宝</span>
+        </div>
+        <button class="button copy" id="copyBtn" data-clipboard-target="#clipboardText"">一键复制淘口令</button>
+        <div class="button success" id="successBtn" style="display:none;">淘口令复制成功,请打开手机淘宝,即可领券购买</div>
+    </div>
+</script>
+
+<!-- 图片模版 -->
+<script id="tpl-images" type="text/html">
+    <div class="imagessCon">
+        {{each $data}}
+            <img src="{{$value}}" />
+        {{/each}}
+    </div>
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jsonp.js"></script>
+<script type="text/javascript" src="js/swiper-3.4.2.jquery.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/dropload.min.js"></script>
+<script type="text/javascript" src="js/clipboard.min.js"></script>
+
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/libs.js?v=555"></script>
+<script type="text/javascript" src="js/weixin.js?v=555"></script>
+<script type="text/javascript" src="js/member.js?v=cccc"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+	// 获取推荐商品-banner
+	/*$.ajax({
+		url: 'http://www.lsg001.com/mng/banner!getBanner.action',
+		contentType: "application/json; charset=utf-8",
+		type: 'post',
+        datatype: "json",
+		data:'',
+		success: function(msg){
+			if (msg.status==1) {
+				var data = msg.data;
+				var html = template('tpl-banner', data);
+				$('#bannerBox').html(html);
+				var bannerSwiper = new Swiper('.Banner', {
+					autoplay: 5000,//可选选项，自动滑动
+					autoplayDisableOnInteraction: false,
+					pagination: '.swiper-pagination',
+					loop: true
+				})
+			}else{
+				ayer.alert(msg.msg,{icon:2});
+			};
+		}
+	});
+
+	// 获取分类列表
+	$.ajax({
+		url: 'http://www.lsg001.com/mng/goods!getClazz.action',
+		contentType: "application/json; charset=utf-8",
+		type: 'post',
+        datatype: "json",
+		data: '',
+		success: function(msg){
+			if (msg.status==1) {
+				var data = msg.data;
+				var html = template('tpl-class', data);
+				$('#navBox').html(html);
+			}else{
+				layer.alert(msg.msg,{icon:2});
+			};
+		}
+	});*/
+
+	// 获取商品
+	var PAGE = 1;
+	getData(PAGE);
+
+
+	// 滚动加载更多
+	var stop = true;
+	$(window).scroll(function(){ 
+	    var totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+	    if($(document).height() <= totalheight&&$('#currentPage').css('display')!='none'){ 
+	        if(stop==true){ 
+	            stop=false;
+	            $('#loading').show();
+    			$('#more').hide();
+    			PAGE++;
+	            getData(PAGE,function(){
+	            	stop = true;
+	            })
+	        } 
+	    } 
+	});
+
+	function getData(page,callback){
+		$.ajax({
+			url: 'http://www.lsg001.com/mng/goods!getGoodsByClazz.action',
+			contentType: "application/json; charset=utf-8",
+			type: 'post',
+	        datatype: "json",
+			data:JSON.stringify({
+				"goods_class": -1,
+				'pageSize': 20,
+				'curPage': page
+			}),
+			success: function(msg){
+				if (msg.status==1) {
+					$('#loading').hide();
+					var data = msg.data.list;
+					if (data.length>0) {
+						var html = template('tpl-product', data);
+						$('#listCon').append(html)
+						$('.list_con li img').each(function(){
+							var imgSrc = $(this).attr('data-src');
+							$(this).attr('src',imgSrc);
+						})
+						
+		    			$('#more').show();
+		    			if (!!callback) {
+		    				callback();
+		    			};
+					}else{
+						$('#more').show();
+					};
+					
+				}else{
+					layer.alert(msg.msg,{icon:2});
+				};
+			}
+		});
+	}
+</script>
+</body>
+</html>

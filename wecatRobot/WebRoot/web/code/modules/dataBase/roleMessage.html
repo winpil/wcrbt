@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/roleMessage.css"/>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content inspectionTeamPage roleMessagePage" id="content">
+    <!--对话框-编辑-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow2"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    角色权限编辑
+                    <span @click.stop="maskShow2=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div>
+                        <span>角色名称</span>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <span>角色描述</span>
+                        <input type="text"/>
+                    </div>
+                    <div>
+                        <span>权限分配</span>
+                        <ul class="power">
+
+
+                                <li>
+
+                                    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">基础数据</el-checkbox>
+                                    <div style="margin: 5px 0;"></div>
+                                    <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                        <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                                    </el-checkbox-group>
+                                </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate1" v-model="checkAll1" @change="handleCheckAllChange1">日常巡查</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities1" @change="handleCheckedCitiesChange1">
+                                    <el-checkbox v-for="city in cities1" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate2" v-model="checkAll2" @change="handleCheckAllChange2">专项任务</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities2" @change="handleCheckedCitiesChange2">
+                                    <el-checkbox v-for="city in cities2" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate3" v-model="checkAll3" @change="handleCheckAllChange3">行政执法</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities3" @change="handleCheckedCitiesChange3">
+                                    <el-checkbox v-for="city in cities3" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate4" v-model="checkAll4" @change="handleCheckAllChange4">绩效考核</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities4" @change="handleCheckedCitiesChange4">
+                                    <el-checkbox v-for="city in cities4" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate5" v-model="checkAll5" @change="handleCheckAllChange5">指挥中心</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities5" @change="handleCheckedCitiesChange5">
+                                    <el-checkbox v-for="city in cities5" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="saveBtn">保存</div>
+            </div>
+        </div>
+    </transition>
+    <!--对话框-新增-->
+    <transition name="move" mode="out-in">
+        <div v-show="maskShow3"  class="mask">
+            <div>
+                <div class="pr modelTop">
+                    新增角色
+                    <span @click.stop="maskShow3=false"></span>
+                </div>
+                <div class="modelContent">
+                    <div>
+                        <span>角色名称</span>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <span>角色描述</span>
+                        <input type="text"/>
+                    </div>
+                    <div>
+                        <span>权限分配</span>
+                        <ul class="power">
+
+
+                            <li>
+
+                                <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">基础数据</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate1" v-model="checkAll1" @change="handleCheckAllChange1">日常巡查</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities1" @change="handleCheckedCitiesChange1">
+                                    <el-checkbox v-for="city in cities1" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate2" v-model="checkAll2" @change="handleCheckAllChange2">专项任务</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities2" @change="handleCheckedCitiesChange2">
+                                    <el-checkbox v-for="city in cities2" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate3" v-model="checkAll3" @change="handleCheckAllChange3">行政执法</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities3" @change="handleCheckedCitiesChange3">
+                                    <el-checkbox v-for="city in cities3" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate4" v-model="checkAll4" @change="handleCheckAllChange4">绩效考核</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities4" @change="handleCheckedCitiesChange4">
+                                    <el-checkbox v-for="city in cities4" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+                            <li>
+                                <el-checkbox :indeterminate="isIndeterminate5" v-model="checkAll5" @change="handleCheckAllChange5">指挥中心</el-checkbox>
+                                <div style="margin: 5px 0;"></div>
+                                <el-checkbox-group v-model="checkedCities5" @change="handleCheckedCitiesChange5">
+                                    <el-checkbox v-for="city in cities5" :label="city" :key="city">{{city}}</el-checkbox>
+                                </el-checkbox-group>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="saveBtn">保存</div>
+            </div>
+        </div>
+    </transition>
+    <div class="container-fluid w">
+
+
+        <div class="pageNav">
+            基础数据 > 角色管理
+        </div>
+
+        <div class="contentArea inspectionTeam peopleListPage" style="padding-bottom: 30px;">
+            <div class="contentTitle">
+                <span class="lineBlue"></span>
+                <span>角色权限管理</span>
+            </div>
+            <div>
+                <div class="addBtnBox">
+                    <button class="iconBtn addBtn" @click.stop="add()"><span></span>新增</button>
+                </div>
+                <div class="inspectionTeamList">
+                    <div class="companyListBox">
+                        <table class="companyList" style="width: 100%">
+                            <tr>
+                                <th>角色名称</th>
+                                <th>角色描述</th>
+                                <th>权限分配</th>
+                                <th >操作</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>某某某fdsafasdfasdf</td>
+                                <td>权限分配\权限分配\权限分配\权限分配\权限分配\权限分配\权限分配\权限分配</td>
+                                <td class="look"><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>某某某fasdfasdf</td>
+                                <td>权限分配、权限分配、权限分配、权限分配、权限分配、权限分配、权限分配</td>
+                                <td class="look"><span class="editIcon"></span><a @click.stop="edit()">编辑</a><span class="deleteIcon"></span><a href="">删除</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+    var  cityOptions = ['企业信息', '巡查组管理', '网格管理', '人员管理','角色管理'];
+    var  cityOptions1 = ['代办事项', '已办事项', '周待办事项'];
+    var  cityOptions2 = ['企业信息', '巡查组管理', '网格管理', '人员管理','角色管理'];
+    var  cityOptions3 = ['企业信息', '巡查组管理', '网格管理', '人员管理','角色管理'];
+    var  cityOptions4 = ['企业信息', '巡查组管理', '网格管理', '人员管理','角色管理'];
+    var  cityOptions5 = ['企业信息', '巡查组管理', '网格管理', '人员管理','角色管理'];
+    var vm = new Vue({
+        el:"#content",
+
+        data:{
+            maskShow2: false,
+            maskShow3: false,
+            form:{
+                name:"jjj",
+                type:"",
+                desc:"我是职责"
+            },
+            checkAll: true,
+            checkAll1: true,
+            checkAll2: true,
+            checkAll3: true,
+            checkAll4: true,
+            checkAll5: true,
+            checkedCities: [],
+            checkedCities1: [],
+            checkedCities2: [],
+            checkedCities3: [],
+            checkedCities4: [],
+            checkedCities5: [],
+            cities: cityOptions,
+            cities1: cityOptions1,
+            cities2: cityOptions2,
+            cities3: cityOptions3,
+            cities4: cityOptions4,
+            cities5: cityOptions5,
+            isIndeterminate: true,
+            isIndeterminate1: true,
+            isIndeterminate2: true,
+            isIndeterminate3: true,
+            isIndeterminate4: true,
+            isIndeterminate5: true
+        },
+        methods:{
+            onSubmit:function(){
+                console.log(123)
+            },
+            edit:function(){
+                this.maskShow2 = true
+            },
+            add:function(){
+                this.maskShow3 = true
+            },
+            handleCheckAllChange:function(event) {
+                this.checkedCities = event.target.checked ? cityOptions : [];
+                this.isIndeterminate = false;
+            },
+            handleCheckAllChange1:function(event) {
+                this.checkedCities1 = event.target.checked ? cityOptions1 : [];
+                this.isIndeterminate1 = false;
+            },
+            handleCheckAllChange2:function(event) {
+                this.checkedCities2 = event.target.checked ? cityOptions2 : [];
+                this.isIndeterminate2 = false;
+            },
+            handleCheckAllChange3:function(event) {
+                this.checkedCities3 = event.target.checked ? cityOptions3 : [];
+                this.isIndeterminate3 = false;
+            },
+            handleCheckAllChange4:function(event) {
+                this.checkedCities4 = event.target.checked ? cityOptions4 : [];
+                this.isIndeterminate4 = false;
+            },
+            handleCheckAllChange5:function(event) {
+                this.checkedCities5 = event.target.checked ? cityOptions4 : [];
+                this.isIndeterminate5 = false;
+            },
+            handleCheckedCitiesChange:function(value) {
+                var checkedCount = value.length;
+                this.checkAll = checkedCount === this.cities.length;
+                this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+            },
+            handleCheckedCitiesChange1:function(value) {
+                var  checkedCount = value.length;
+                this.checkAll1 = checkedCount === this.cities1.length;
+                this.isIndeterminate1 = checkedCount > 0 && checkedCount < this.cities1.length;
+            },
+            handleCheckedCitiesChange2:function(value) {
+                var  checkedCount = value.length;
+                this.checkAll2 = checkedCount === this.cities2.length;
+                this.isIndeterminate2 = checkedCount > 0 && checkedCount < this.cities2.length;
+            },
+            handleCheckedCitiesChange3:function(value) {
+                var  checkedCount = value.length;
+                this.checkAll3 = checkedCount === this.cities3.length;
+                this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities3.length;
+            },
+            handleCheckedCitiesChange4:function(value) {
+                var checkedCount = value.length;
+                this.checkAll4 = checkedCount === this.cities4.length;
+                this.isIndeterminate4 = checkedCount > 0 && checkedCount < this.cities4.length;
+            },
+            handleCheckedCitiesChange5:function(value) {
+                var checkedCount = value.length;
+                this.checkAll5 = checkedCount === this.cities5.length;
+                this.isIndeterminate5 = checkedCount > 0 && checkedCount < this.cities5.length;
+            }
+
+        }
+    });
+    console.log(vm)
+
+</script>
+</html>
+
+
+
+
+

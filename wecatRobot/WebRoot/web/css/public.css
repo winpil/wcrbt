@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* 禁用iPhone中Safari的字号自动调整 */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+/* 去除iPhone中默认的input样式 */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input{-webkit-appearance:none; resize: none;}
+input{outline: none;}
+/* 取消链接高亮  */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article, 
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); }
+select{border-style: 0;}
+/* 设置HTML5元素为块 */
+article, aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {
+display: block;
+}
+/* 图片自适应 */
+img {max-width: 100%; height: auto; width:auto\9; /* ie8 */ -ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/}
+
+select{outline-style: none;font-style: none;border-style: none;background: transparent;}
+/* 初始化 */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article, 
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{margin:0; padding:0; border:none;}
+body{font-family: "Microsoft YaHei",'宋体',Tahoma,Arial,sans-serif; color:#555; background-color:#F7F7F7; font-size: 14px;}
+em,i{font-style:normal;}
+strong{font-weight: normal;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both;}
+.clearfix{zoom:1;}
+a{text-decoration:none; color:#969696; font-family:"Microsoft YaHei", '宋体',Tahoma,Arial,sans-serif;}
+a:hover{color:#FED503; text-decoration:none;}
+ul,ol{list-style:none;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-family: "Microsoft YaHei"; font-style: normal;}
+img{border: none;}
+*{-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+
+@font-face {
+	font-family:'Glyphicons Halflings';
+	src:url('fonts/glyphicons-halflings-regular.eot');
+	src:url('fonts/glyphicons-halflings-regular.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+		url('fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+		url('fonts/glyphicons-halflings-regular.woff') format('woff'),
+		url('fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+		url('fonts/glyphicons-halflings-regular.svg#GlyphiconsHalflings') format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:'Ionicons';
+	src:url('fonts/ionicons.eot');
+	src:url('fonts/ionicons.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+		url('../img/ionicons.woff') format('woff'),
+		url('../img/ionicons.ttf') format('truetype'),
+		url('fonts/ionicons.svg#Ionicons') format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
+	font-family:'iconfont';
+	src:url('fonts/iconfont.eot');
+	src:url('fonts/iconfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+		url('fonts/iconfont.woff') format('woff'),
+		url('fonts/iconfont.ttf') format('truetype'),
+		url('fonts/iconfont.svg#iconfont') format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
+.glyphicon{
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icons{
+	display: inline-block;
+	font-family: "Ionicons";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-rendering: auto;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.linear {
+	display: inline-block;
+	font-family:"iconfont";
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}

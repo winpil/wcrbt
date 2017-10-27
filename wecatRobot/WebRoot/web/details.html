@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="wap-font-scale" content="no" />
+<meta name="renderer" content="webkit" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="author" content="Your Name" />
+<title>恋上购优惠券</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="js/rem.js"></script>
+<link rel="stylesheet" href="css/public.css" />
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="detailsBox" id="detailsBox">
+        <div class="loading" id="loading" style="display:none"><img src="js/layer/skin/default/loading-1.gif" height="24" width="24"></div>
+        
+    </div>
+    <!--<div class="detailsBack" onclick="window.history.go(-1);"><i class="linear">&#xe62e;</i></div>-->
+    <div id="imagesBox"></div>
+    <footer class="detailsFooter">
+    	<div class="left">
+            <a class="btn" href="index.html"><i class="linear">&#xe604;</i><span>首页</span></a>
+            <a class="btn follow showEwmMask" href="javascript:void(0);"><i class="linear">&#xe603;</i><span>关注我们</span></a>
+        </div>
+        <div class="right">
+            <a class="btn browser">浏览器打开</a>
+            <span class="btn coupon" id="getCoupon">领优惠券</span>
+        </div>
+    </footer>
+
+    <div class="maskBox" id="taoToken" style="display:none;"></div>
+    <div class="ewmMask" id="ewmMask" style="display:none;">
+        <div class="closeMask"></div>
+        <img src="img/erweima_dyh.jpg" />
+    </div>
+
+<!-- 详情页模版 -->
+<script id="tpl-details" type="text/html">
+    <input type="hidden" id="token_goods_id" value="{{$data}}" />
+    <div class="details_pic">
+        <img src="{{$data.goods_img}}" />
+    </div>
+    <div class="title">
+        <div class="text"><img src="img/icon_{{$data.platform}}.png">{{$data.goods_title}}</div>
+        <!--<div class="btn"><i class="linear">&#xe629;</i><span>分享</span></div>-->
+    </div>
+    <div class="price">
+        <div class="left"><span class="red">券后价<b>￥{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}</b></span><span class="delete">原价{{$data.goods_price}}</span></div>
+        <div class="right">月销 {{$data.goods_month_sells}} 笔</div>
+    </div>
+    <ul class="count">
+        <li class="li1">优惠券: <span class="red">￥{{$data.coupon_value}}</span></li>
+        <li class="li2">数量: <span class="red">{{$data.coupon_count}}张</span></li>
+        <li class="li3">结束: <span class="red">{{$data.coupon_end_time}}</span></li>
+    </ul>
+	<div class="det_list det_list2">
+		<span>佣金比例：<b>{{$data.goods_rate}}%</b></span>
+		<span>会员约赚：<b>￥{{((($data.goods_price*1000 - $data.coupon_value*1000)/1000)*($data.goods_rate/100)*0.7).toFixed(2)}}</b></span>
+	</div>
+    <!--<div class="shop">店铺：{{$data.shop_name}}</div>-->
+</script>
+
+<!-- 口令模版 -->
+<script id="tpl-token" type="text/html">
+<textarea id="clipboardText">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+</textarea>
+    <div class="maskCon">
+        <div class="pic">
+            <img src="{{$data.goods_img}}" />
+        </div>
+<!--		<textarea class="tokeBox" style="width:100%" rows="10">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}
+【商品】{{$data.goods_title}}
+【原价】{{$data.goods_price}}元
+【优惠券】{{$data.coupon_value}}元
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元
+		</textarea> -->
+		<div class="tokeBox" id="tkl" style="display: block; text-align: left;">
+【商品领券下单】长按复制这条信息，打开【手机淘宝】可领券并下单 {{$data.taobaoPwd}}<br/>
+【商品】{{$data.goods_title}}<br/>
+【原价】{{$data.goods_price}}元<br/>
+【优惠券】{{$data.coupon_value}}元<br/>
+【券后价】{{($data.goods_price*1000 - $data.coupon_value*1000)/1000}}元<br/>
+		</div>
+		<div>
+            <span>部分iphone6/6s手机无法复制淘口令，请将系统升级到最新版本:10.3.2，或长按全选复制上方淘口令。</span>
+        </div>
+        <div class="title">
+            <span class="left">1、复制淘口令</span>
+            <span class="right">2、打开手机淘宝</span>
+        </div>
+        <button class="button copy" id="copyBtn" data-clipboard-target="#clipboardText">一键复制淘口令</button>
+        <div class="button success" id="successBtn" style="display:none;">淘口令复制成功,请打开手机淘宝,即可领券购买</div>
+    </div>
+</script>
+
+<!-- 图片模版 -->
+<script id="tpl-images" type="text/html">
+    <div class="imagessCon">
+        {{each $data}}
+            <img src="{{$value}}" />
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jsonp.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/clipboard.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/weixin/libs.js?v=555"></script>
+<script type="text/javascript" src="js/weixin/weixin.js?v=555"></script>
+<script type="text/javascript" src="js/weixin/member.js?v=666"></script>
+<script type="text/javascript">
+    // 领优惠券
+    $('#getCoupon').click(function(){
+        $('#taoToken').show();
+    });
+
+
+    // 获取详情
+    $.ajax({
+        url: 'http://www.lsg001.com/mng/goods!getGoodsDetail.action',
+        contentType: "application/json; charset=utf-8",
+        type: 'post',
+        datatype: "json",
+        data:JSON.stringify({
+            "id": getUrlParam('id')
+        }),
+        success: function(msg){
+            console.log(msg)
+            if (msg.status==1) {
+                var data = msg.data;
+                $('.browser').attr('href',data.goods_spread_url)
+                var timeArr = data.coupon_end_time.substr(0,10).split('-');
+                for (var i = 0; i < timeArr.length; i++) {
+                    timeArr[i] = parseInt(timeArr[i]);
+                };
+                data.coupon_end_time = timeArr.join('.');
+                var html = template('tpl-details', data);
+                $('#detailsBox').html(html);
+                getToken(data);
+                getDetailImages(data.goods_id,function(response){
+                    var imgArr = response.data.images;
+                    var imgHtml = template('tpl-images', imgArr);
+                    $('#imagesBox').html(imgHtml);
+                })
+            }else{
+                layer.alert(msg.msg,{icon:2});
+            };
+        }
+    });
+
+    // 生成淘口令
+    function getToken(obj){
+        var data = obj;
+        $.ajax({
+            url: 'http://www.lsg001.com/mng/goods!createTaobaoPwd.action',
+            contentType: "application/json; charset=utf-8",
+            type: 'post',
+            datatype: "json",
+            data:JSON.stringify({
+                "id": getUrlParam('id'),
+                "openid": util.getCookie(wx_constant.WX_OPENID_SERV)
+                // "id": getUrlParam('id'),
+                // "spread_id": "asdeoasxxae",      // 推广者userId【可选】
+                // "text": "活动多多，惊喜多多"     // 推广文案【可选，不填默认文案】
+            }),
+            success: function(msg){
+                console.log(msg)
+                if (msg.status==1) {
+                    data.taobaoPwd = msg.data.taobaoPwd;
+                    var html = template('tpl-token', data);
+                    $('#taoToken').html(html);
+
+                }else{
+                    layer.alert(msg.msg,{icon:2});
+                };
+            }
+        });
+    }
+    var clipboard = new Clipboard('#copyBtn');
+    clipboard.on('success', function(e) {
+        // alert(JSON.stringify(e))
+        $('#copyBtn').hide();
+        $('#successBtn').show();
+    });
+    clipboard.on('error', function(e) {
+        layer.alert('复制失败，请重新复制或手动复制',{icon:2});
+    });
+    
+</script>
+</body>
+</html>

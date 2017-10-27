@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="wap-font-scale" content="no" />
+<meta name="renderer" content="webkit" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, address=no, email=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="author" content="Your Name" />
+<title>恋上购优惠券</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="js/rem.js"></script>
+<link rel="stylesheet" href="css/public.css" />
+<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header class="Header">
+        <div class="goBack" onclick="window.history.go(-1);"><i class="icons">&#xf124;</i></div>
+        <form class="search search_box">
+            <input type="search" id="searchVal" name="search" />
+            <i class="icons">&#xf1d9;</i>
+        </form>
+        <div class="btn" id="goSearch">搜索</div>
+    </header>
+    <div class="historyCon">
+        <dl class="history" id="historyBox">
+            <dt>历史搜索</dt>
+        </dl>
+        <div class="clearBtn" id="clearHistory">清空搜索历史</div>
+    </div>
+
+<!-- 隐藏域 -->
+<form id="hiddenForm">
+    <input id="goods_class" type="hidden" name="goods_class" value="0" />
+    <input id="platform" type="hidden" name="platform" value="" />
+    <input id="curPage" type="hidden" name="curPage" value="1" />
+    <input id="pageSize" type="hidden" name="pageSize" value="20" />
+    <input id="sortName" type="hidden" name="sortName" value="" />
+    <input id="orderBy" type="hidden" name="orderBy" value="" />
+    <input id="min_price" type="hidden" name="min_price" value="" />
+    <input id="max_price" type="hidden" name="max_price" value="" />
+
+    <!-- 是否是搜索结果 -->
+    <input id="pageType" type="hidden" name="pageType" value="default" />
+</form>
+
+<!-- 搜索历史模版 -->
+<script id="tpl-history" type="text/html">
+    {{each $data}}
+        <dd><a href="list.html?search={{$value}}"><span>{{$value}}</span><i class="icons">&#xf154;</i></a></dd>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/libs.js?v=555"></script>
+<script type="text/javascript" src="js/weixin.js?v=555"></script>
+<script type="text/javascript" src="js/member.js?v=666"></script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+    // 获取焦点
+    $(function(){
+        var search = getUrlParam('search');
+        $('#searchVal').val(search);
+        setTimeout(function(){
+            $('#searchVal').focus();
+        },500)
+        $('#searchVal').focus(function(){
+            $(this).css('color','#fff');
+        });
+        $('#searchVal').keyup(function(event) {
+            if(event.keyCode == 13){
+                $('#goSearch').click();
+            }
+        });
+        
+    })
+    
+        
+
+    // 获取历史记录
+    var historyStr = localStorage.history?localStorage.history:'';
+    var Arr = historyStr.split(',');
+    var historyArr = [];
+    for (var i = 0; i < Arr.length; i++) {
+        if($.trim(Arr[i]) != ''){
+            historyArr.unshift(Arr[i]);
+        }
+    };
+    var historyHtml = template('tpl-history', historyArr);
+    $('#historyBox').append(historyHtml);
+
+    // 搜索
+    $('#goSearch').click(function(){
+        var val = $('#searchVal').val();
+        historyArr.push(val);
+        localStorage.history = historyArr.join();
+        window.location.href = 'list.html?search='+val;
+    });
+
+    // 清空历史记录
+    $('#clearHistory').click(function(){
+        localStorage.history = '';
+        historyArr = []
+        $('#historyBox dd').remove();
+    })
+</script>
+</body>
+</html>

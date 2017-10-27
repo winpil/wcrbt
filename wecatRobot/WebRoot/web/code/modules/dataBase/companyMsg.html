@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title id="title">安监</title>
+    <link rel="stylesheet" href="../../css/common/element.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common/common.css" />
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common/index.css" />
+    <link rel="stylesheet" href="../../css/dataBase/companyMsg.css"/>
+</head>
+<body>
+<div class="dateMsg" >
+    <div class="w clearfix">
+        <div class="fr">广州</div>
+    </div>
+</div>
+<div class="top">
+    <div class="top_banner">
+        <div class="w clearfix">
+            <div class="logoName fl pr">
+                <span class="logoIcon pa"></span>
+                广州市安全生产监督管理系统
+            </div>
+            <div class="userBtn fr">
+                <a href="javascript:;">
+                    <img src="../../images/icon_myself.png" alt=""/>
+                    <span class="userName">胡某某</span>
+                    <span>【安监中队负责人】</span>
+                </a>
+
+                <a href="javascript:;" class="layOutBtn">退出</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="top_nav ">
+        <div class="container-fluid w">
+            <ul class="oneMenu clearfix">
+                <li class="oneMenuLi"><a href="../index.html"></a>首页</li>
+                <li class="oneMenuLi">基础数据
+                    <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="companyMsg.html">企业信息</a>
+                        </li>
+                        <li>
+                            <a href="network.html">网格管理</a>
+                        </li>
+                        <li>
+                            <a href="peopleList.html">人员管理</a>
+                        </li>
+                        <li>
+                            <a href="roleMessage.html">角色管理</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">日常巡查 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../dayPatrol/daiBanList.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/yiBanList.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../dayPatrol/weekDaiBanList.html">周待办事项</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">专项任务 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../specificTasks/setList.html">配置列表</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/daibanshixiang.html">待办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/yibanshixiang.html">已办事项</a>
+                        </li>
+                        <li>
+                            <a href="../specificTasks/zhoudaiban.html">周待办事项</a>
+                        </li>
+                    </ol></li>
+                <li class="oneMenuLi">行政执法 <span class="one_dropIcon"></span></li>
+                <li class="oneMenuLi">绩效考核 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../assess/dataStatistics.html">数据统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceRating.html">绩效统计</a>
+                        </li>
+                        <li>
+                            <a href="../assess/performanceStatistics.html">绩效评分</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class="oneMenuLi">指挥中心 <span class="one_dropIcon"></span>
+                    <ol>
+                        <li>
+                            <a href="../commandCenter/currentPosition.html">巡查员即时位置</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员巡查轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/inspectionRoute.html">巡查员历史轨迹</a>
+                        </li>
+                        <li>
+                            <a href="../commandCenter/eventSpread.html">事件分布</a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content" id="content">
+    <div class="container-fluid w">
+
+        <div class="pageNav">
+            基础数据  >  企业信息
+
+        </div>
+
+        <div class="contentArea">
+            <div class="contentTitle">
+                <span class="lineBlue"></span>
+                <span>企业列表</span>
+            </div>
+            <div class="inquiryMsg">
+                    <div class="inquiry_content">
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w80">所属网络</span>
+                                <el-select v-model="haha">
+                                    <el-option label="全部" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w80">单位名称</span>
+                                <el-input class="inputStyle"  v-model="form.name"></el-input>
+                            </li>
+                            <li>
+                                <span class="w80">地址</span>
+                                <el-input class="inputStyle"  v-model="form.name"></el-input>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w80">单位性质</span>
+                                <el-select v-model="haha">
+                                    <el-option label="法人" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w80">企业类别</span>
+                                <el-select v-model="haha">
+                                    <el-option label="商场" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w126">是否重点单位</span>
+                                <el-select v-model="haha">
+                                    <el-option label="一般单位" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w80">安全级别</span>
+                                <el-select v-model="haha">
+                                    <el-option label="全部" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w80">巡查频率</span>
+                                <el-select v-model="haha">
+                                    <el-option label="较少(90天/次)" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w126">涉危险化学品单位</span>
+                                <el-select v-model="haha">
+                                    <el-option label="经营" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w92">社职业病类型</span>
+                                <el-select v-model="haha">
+                                    <el-option label="经营" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                        </ul>
+                        <ul class="row clearfix">
+                            <li>
+                                <span class="w80">状态</span>
+                                <el-select v-model="haha">
+                                    <el-option label="新增未通过" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                            <li>
+                                <span class="w80">是否已绑定</span>
+                                <el-select v-model="haha">
+                                    <el-option label="是" value="shanghai"></el-option>
+                                    <el-option label="1" value="beijing"></el-option>
+                                </el-select>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                    <div class="inquiryBtn">
+                        <div class="reset"><span></span>重置</div>
+                        <div class="inquiryBt"><span></span>查询</div>
+                    </div>
+            </div>
+            <div class="companyListBox">
+                <table class="companyList">
+                    <tr>
+                        <th>序号</th>
+                        <th class="w160">单位名称</th>
+                        <th>单位类型</th>
+                        <th>安全级别</th>
+                        <th class="w92">是否重点单位</th>
+                        <th class="w92">巡查频率</th>
+                        <th class="w92">涉危险化学品单位</th>
+                        <th class="w92">涉职业病类型</th>
+                        <th>所属网络</th>
+                        <th class="w85">是否已绑定</th>
+                        <th>状态</th>
+                        <th class="w80">操作</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>广州安全隐患企业</td>
+                        <td>卫生类</td>
+                        <td>安全</td>
+                        <td>一般单位</td>
+                        <td>较少</td>
+                        <td>经营</td>
+                        <td>粉尘</td>
+                        <td>某某社区</td>
+                        <td>是</td>
+                        <td>新增未通过</td>
+                        <td class="look"><span></span>查看</td>
+                    </tr>
+                    <tr class="heightLight">
+                        <td>2</td>
+                        <td>广州安全隐患企业</td>
+                        <td>卫生类</td>
+                        <td>安全</td>
+                        <td>一般单位</td>
+                        <td>较少</td>
+                        <td>经营</td>
+                        <td>粉尘</td>
+                        <td>某某社区</td>
+                        <td>是</td>
+                        <td>新增未通过</td>
+                        <td class="look"><span></span>查看</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    版权所有：广州市安全生产监督管理局  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;    技术支持：广州科密
+</div>
+</body>
+<script src="../../lib/vue.js"></script>
+<script src="../../lib/element.js"></script>
+<script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script src="../../js/common/nav.js"></script>
+<script src="../../lib/bootstrap.min.js"></script>
+<script>
+
+
+    var vm = new Vue({
+        el:"#content",
+        data:{
+            maskShow:false,
+            haha:"",
+            form:{
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: ''
+            }
+        },
+        methods:{
+            look:function(){
+                this.maskShow = true
+            },
+        }
+    });
+
+</script>
+</html>
+
